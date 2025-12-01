@@ -84,13 +84,22 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 800;
+  }
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;600;700;800&display=swap');
 
 html,
 body {
   max-width: 100%;
   overflow-x: hidden;
-  background-color: black;
+  background-color: #1F2125;
+  font-family: 'Dosis', sans-serif;
+  scroll-behavior: smooth;
 }
 
 .dark {
@@ -125,4 +134,36 @@ body {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+@keyframes road-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-road-scroll {
+  animation: road-scroll 30s linear infinite;
+}
+
+.road-scrollbar {
+  scrollbar-color: #05070a #1a1f26;
+}
+
+.road-scrollbar::-webkit-scrollbar {
+  height: 12px;
+}
+
+.road-scrollbar::-webkit-scrollbar-track {
+  background: #1a1f26;
+  border-radius: 999px;
+}
+
+.road-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #05070a, #0f141a);
+  border-radius: 999px;
+  border: 2px solid #1a1f26;
 }
