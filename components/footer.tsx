@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#0b1016]">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 py-10 text-white sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-lg font-semibold">HackTJ 13.0</p>
+        <p className="text-lg font-bold">HackTJ 13.0</p>
         <div className="flex flex-wrap items-center justify-center gap-6 text-white/80">
           {footerLinks.map((link) => (
             <FooterLink key={link.href} href={link.href}>
