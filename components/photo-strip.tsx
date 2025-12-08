@@ -17,7 +17,7 @@ export default function PhotoStrip() {
             <div className="flex h-32 w-[180%] animate-road-scroll items-center gap-6 px-8" style={{ animationDuration: "25s" }}>
               {ribbon.map((photo, index) => (
                 <div key={`${photo}-${index}`} className="relative h-32 w-60 flex-shrink-0 overflow-hidden rounded-2xl border-4 border-white/70 bg-white/85 shadow-[0_14px_30px_rgba(0,0,0,0.35)]">
-                  <Image src={`/${photo}`} alt={`HackTJ ${photo}`} fill sizes="240px" className="object-cover" />
+                  <Image src={`/prev/${photo}`} alt={`HackTJ ${photo}`} fill sizes="240px" className="object-cover" />
                 </div>
               ))}
             </div>
