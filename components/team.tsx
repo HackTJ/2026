@@ -14,7 +14,7 @@ const team: TeamMember[] = [
   },
   {
     name: "Hashmita Nittala",
-    bio: "",
+    bio: "Hashmita is a senior at TJHSST, and she is excited for her second year on the team. She enjoys using her computer science knowledge to solve competitive programming problems and create apps that can help tackle real-world issues. Outside of HackTJ, she is involved in TSA and the Computer Team. In her free time, she enjoys playing basketball, baking, watching TV, and listening to music.",
     image: "/team/hashmita.jpg",
   },
   {
@@ -44,7 +44,7 @@ const team: TeamMember[] = [
   },
   {
     name: "Shreyas Jain",
-    bio: "",
+    bio: "Shreyas is a junior at TJHSST, and this is his first year on the team after competing in 11.0. This year, he's working on tech and judging for HackTJ 13.0, building the event website and judging platforms. Outside HackTJ, he enjoys competing in robotics and rocketry, and is a Sysadmin for the tjCSL. In his free time, he loves sleeping and hanging out with friends.",
     image: "/team/shreyas.jpg",
   },
   {
