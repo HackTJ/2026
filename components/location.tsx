@@ -15,7 +15,7 @@ export default function Location() {
         <div className="md:col-span-2">
           <div className="rounded-[32px] border border-[#6f5938] bg-[#684f33] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.0!2d-77.2!3d38.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDU0JzAwLjAiTiA3N8KwMTInMDAuMCJX!5e0!3m2!1sen!2sus!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1663.452839127444!2d-77.23552553059025!3d38.921404279113695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b64af13c242263%3A0x9ba83db6fd24b750!2sCvent%20HQ!5e0!3m2!1sen!2sus!4v1765150873723!5m2!1sen!2sus"
               width="100%"
               height="280"
               className="rounded-[24px]"

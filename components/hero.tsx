@@ -13,7 +13,7 @@ const registrationCopy = {
     hasLink: true,
   },
   not_open_yet: {
-    label: "Registration Not Open Yet",
+    label: "Registration Not Yet Open",
     helper: "",
     hasLink: false,
   },
@@ -47,7 +47,7 @@ export default function Hero() {
             Spring 2026
           </p>
           <h1 className="mt-2 text-5xl font-extrabold leading-[1.1] sm:text-6xl lg:text-7xl">
-            HackTJ <span className="text-[#A4E786]">13.0</span>
+            HackTJ <span className="text-[#FCB2C3]">13.0</span>
           </h1>
           <p className="mt-2 text-lg font-semibold text-white/90">
             March 8-9, 2026 · Cvent HQ · Tysons, VA
