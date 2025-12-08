@@ -1,4 +1,10 @@
 const SPONSOR_CONTACT_EMAILS = ["shaurya@hacktj.org", "aanya@hacktj.org"];
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+const withBasePath = (path: string) => {
+  if (!path) return BASE_PATH;
+  return path.startsWith("/") ? `${BASE_PATH}${path}` : `${BASE_PATH}/${path}`;
+};
 
 type SponsorLogo = {
   name: string;
@@ -83,7 +89,7 @@ export default function Sponsors() {
             </a>{" "}
             or{" "}
             <a
-              href="/sponsorship13_0.pdf"
+              href={withBasePath("/sponsorship13_0.pdf")}
               target="_blank"
               rel="noreferrer"
               className="underline decoration-dotted underline-offset-4"
@@ -155,7 +161,7 @@ function ParkingSpot({ logo }: { logo?: SponsorLogo }) {
       <div className="flex h-full items-center justify-center rounded-xl border border-dashed border-white/25 p-4 text-sm">
         {logo ? (
           <img
-            src={logo.src}
+            src={withBasePath(logo.src)}
             alt={`${logo.name} logo`}
             className={`max-h-14 w-full object-contain ${logo.className ?? ""}`.trim()}
           />
