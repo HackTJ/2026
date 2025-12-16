@@ -50,7 +50,7 @@ export default function Hero() {
             HackTJ <span className="text-[#FCB2C3]">13.0</span>
           </h1>
           <p className="mt-2 text-lg font-semibold text-white/90">
-            March 8-9, 2026 · Cvent HQ · Tysons, VA
+            March 7-8, 2026 · Cvent HQ · Tysons, VA
           </p>
           <p className="mt-2 text-base text-white/85">
             Spend the weekend building bold ideas with workshops, mentors, and surprises.
