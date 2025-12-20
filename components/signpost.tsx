@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Signpost() {
   return (
-    <section className="relative overflow-hidden bg-[#FCB2C3] py-20 text-white">
+    <section className="relative overflow-hidden bg-[var(--color-primary)] py-20 text-white">
       <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-[#e4d3ad] to-transparent opacity-80" />
       <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-[#e4d3ad] to-transparent opacity-80" />
       <div className="absolute inset-x-0 bottom-0 h-3 bg-[#7a5a35]" />
@@ -18,8 +18,8 @@ export default function Signpost() {
           </div>
 
           <div className="rounded-[36px] border-4 border-[#d7c4a1] bg-[#fff8ea] p-10 text-center text-[#1e1b16] shadow-[0_35px_70px_rgba(0,0,0,0.35)]">
-            <h3 className="mt-3 text-4xl font-extrabold text-[#3b2b1b]">Want the full map?</h3>
-            <p className="mt-4 text-base text-[#4c3a26]">
+            <h3 className="mt-3 text-4xl font-extrabold text-[var(--color-secondary)]">Want the full map?</h3>
+            <p className="mt-4 text-base text-[var(--color-secondary)]">
               Hop off the main road to view the full schedule and the FAQ. Tap a button below to take the detour.
             </p>
 

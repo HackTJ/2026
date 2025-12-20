@@ -1,5 +1,6 @@
 "use client";
 
+import { siteConfig } from "@/lib/site-config";
 import { useState } from "react";
 
 type FAQItem = {
@@ -28,7 +29,7 @@ const faqSections: FAQSection[] = [
       {
         question: "When is HackTJ?",
         answer: [
-          "Save the Date! HackTJ 13.0 runs March 8-9, 2026, at Cvent HQ in Tysons Corner.",
+          `Save the Date! HackTJ ${siteConfig.iteration} runs ${siteConfig.event.dates}, at ${siteConfig.event.venue} in ${siteConfig.event.city}.`,
           "Doors open Saturday morning at 9:00 AM with the opening ceremony shortly after.",
         ],
       },
@@ -72,7 +73,7 @@ const faqSections: FAQSection[] = [
         question: "How are ticket decisions made?",
         answer: [
           "Tickets are issued based on a mix of factors, including completeness of your application and when you submit.",
-          "Sign up as soon as registration opens to maximize your chance of receiving a HackTJ 13.0 ticket.",
+          `Sign up as soon as registration opens to maximize your chance of receiving a HackTJ ${siteConfig.iteration} ticket.`,
         ],
       },
       {
@@ -110,7 +111,7 @@ const faqSections: FAQSection[] = [
       {
         question: "Are there sponsored prizes?",
         answer: [
-          "Absolutely. Select partners bring their own prizes, and we have a plethera of our own, keep an eye on the HackTJ 13.0 student guide for those details.",
+          `Absolutely. Select partners bring their own prizes, and we have a plethera of our own, keep an eye on the HackTJ ${siteConfig.iteration} student guide for those details.`,
         ],
       },
       {
