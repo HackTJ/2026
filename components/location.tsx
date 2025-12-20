@@ -1,6 +1,6 @@
 export default function Location() {
   return (
-    <section id="location" className="relative overflow-hidden bg-[#4f7c38] py-20 text-white">
+    <section id="location" className="relative overflow-hidden bg-[#FCB2C3] py-20 text-[#4c3a26]">
       <div className="absolute inset-x-0 top-0 h-4 bg-gradient-to-b from-white/30 to-transparent opacity-70" />
       <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-t from-white/30 to-transparent opacity-70" />
       <div className="absolute inset-x-0 bottom-0 h-3 bg-[#6f5938]" />

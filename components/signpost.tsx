@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Signpost() {
   return (
-    <section className="relative overflow-hidden bg-[#4d6f3b] py-20 text-white">
+    <section className="relative overflow-hidden bg-[#FCB2C3] py-20 text-white">
       <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-[#e4d3ad] to-transparent opacity-80" />
       <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-[#e4d3ad] to-transparent opacity-80" />
       <div className="absolute inset-x-0 bottom-0 h-3 bg-[#7a5a35]" />
