@@ -36,16 +36,16 @@ const sponsorTiers: SponsorTier[] = [
     name: "Gold",
     slots: 4,
     blurb: "",
-    logos: [{ name: "Roam", src: "/logos/gold/roam.png" }],
+    logos: [
+      { name: "Roam", src: "/logos/gold/roam.png" },
+      { name: "Susa", src: "/logos/gold/susa.png" },
+    ],
   },
   {
     name: "Silver",
     slots: 5,
     blurb: "",
-    logos: [],
-    showWhenEmpty: true,
-    emptyMessage: "Reserve a Silver space and get your logo parked here.",
-    contactEmails: SPONSOR_CONTACT_EMAILS,
+    logos: [{ name: "Hudson River Trading", src: "/logos/silver/hrt.png" }]
   },
   {
     name: "Bronze",
