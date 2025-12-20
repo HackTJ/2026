@@ -9,7 +9,7 @@ type TeamMember = {
 const team: TeamMember[] = [
   {
     name: "Aanya Gupta",
-    bio: "",
+    bio: "Aanya is the Director of HackTJ this year, and this is her third year on the team after competing in HackTJ 10.0! She enjoys finding ways to bridge gaps between computer science and biology, solving problems that impact social good. In her free time, she enjoys baking for her friends, listening to music, and rock climbing.",
     image: "/team/aanya.jpg",
   },
   {
@@ -54,7 +54,7 @@ const team: TeamMember[] = [
   },
   {
     name: "Sidh Jaddu",
-    bio: "",
+    bio: "Sidh is a junior at TJHSST, and this is his second year on the team after competing in HackTJ 11.0. He is interested in machine learning, specifically generative artificial intelligence, and its various applications in mitigating critical real-world problems. Aside from that, he enjoys hiking and exploring the outdoors.",
     image: "/team/sidh.jpg",
   },
   {
