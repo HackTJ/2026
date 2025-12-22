@@ -7,7 +7,7 @@ type DaySchedule = {
 const scheduleDays: DaySchedule[] = [
   {
     day: "Day 1",
-    date: "Saturday · March 8",
+    date: "Saturday · March 7",
     events: [
       { time: "9:00 AM", title: "Doors Open" },
       { time: "10:00 AM", title: "Sponsor Fair" },
@@ -20,7 +20,7 @@ const scheduleDays: DaySchedule[] = [
   },
   {
     day: "Day 2",
-    date: "Sunday · March 9",
+    date: "Sunday · March 8",
     events: [
       { time: "8:00 AM", title: "Breakfast" },
       { time: "11:00 AM", title: "Hacking Ends" },
