@@ -1,93 +1,263 @@
+import {
+  ClipboardCheck,
+  Coffee,
+  DoorOpen,
+  Flag,
+  FlaskConical,
+  Handshake,
+  MoonStar,
+  Rocket,
+  Sparkles,
+  Trophy,
+  UtensilsCrossed,
+  type LucideIcon,
+} from "lucide-react";
+
+import { siteConfig } from "@/lib/site-config";
+
+type ScheduleEvent = {
+  time: string;
+  endTime?: string;
+  title: string;
+  icon: LucideIcon;
+};
+
 type DaySchedule = {
   day: string;
   date: string;
-  events: { time: string; title: string }[];
+  tagline: string;
+  description: string;
+  duration: string;
+  accent: {
+    base: string;
+    glow: string;
+  };
+  events: ScheduleEvent[];
 };
 
 const scheduleDays: DaySchedule[] = [
   {
     day: "Day 1",
-    date: "Saturday · March 7",
+    date: "Saturday · March 8",
+    tagline: "Kickoff + Overnight Sprint",
+    description:
+      "Staggered check-ins start at 9 AM, followed by fairs, workshops, panels, and late-night submissions.",
+    duration: "15 hours on-site",
+    accent: { base: "#fcb2c3", glow: "#ffd9e5" },
     events: [
-      { time: "9:00 AM", title: "Doors Open" },
-      { time: "10:00 AM", title: "Sponsor Fair" },
-      { time: "11:00 AM", title: "Opening Ceremony" },
-      { time: "12:00 PM", title: "Hacking Begins" },
-      { time: "2:00 PM", title: "Workshops & Mentors" },
-      { time: "6:00 PM", title: "Dinner" },
-      { time: "12:00 AM", title: "Midnight Snack" },
+      {
+        time: "9:00 AM",
+        title: "Doors Open",
+        icon: DoorOpen,
+      },
+      {
+        time: "9:00 AM",
+        endTime: "12:00 PM",
+        title: "Sponsor Fair",
+        icon: Handshake,
+      },
+      {
+        time: "12:00 PM",
+        title: "Doors Close",
+        icon: Flag,
+      },
+      {
+        time: "12:00 PM",
+        endTime: "12:30 PM",
+        title: "Opening Ceremony",
+        icon: Sparkles,
+      },
+      {
+        time: "12:30 PM",
+        title: "Hacking Begins",
+        icon: Rocket,
+      },
+      {
+        time: "12:30 PM",
+        endTime: "1:00 PM",
+        title: "Team Building",
+        icon: Handshake,
+      },
+      {
+        time: "1:00 PM",
+        title: "Submit Check-In Form",
+        icon: ClipboardCheck,
+      },
+      {
+        time: "12:30 PM",
+        endTime: "1:00 PM",
+        title: "Resources & Q&A",
+        icon: FlaskConical,
+      },
+      {
+        time: "1:00 PM",
+        endTime: "2:00 PM",
+        title: "Lunch",
+        icon: UtensilsCrossed,
+      },
+      {
+        time: "2:00 PM",
+        endTime: "6:00 PM",
+        title: "Workshops",
+        icon: FlaskConical,
+      },
+      {
+        time: "7:00 PM",
+        endTime: "8:00 PM",
+        title: "Dinner",
+        icon: UtensilsCrossed,
+      },
+      {
+        time: "8:00 PM",
+        endTime: "9:00 PM",
+        title: "Women in Tech Panel",
+        icon: Sparkles,
+      },
+      {
+        time: "11:30 PM",
+        title: "Submit Project Category",
+        icon: ClipboardCheck,
+      },
     ],
   },
   {
     day: "Day 2",
-    date: "Sunday · March 8",
+    date: "Sunday · March 9",
+    tagline: "Ship, Show, Celebrate",
+    description:
+      "Midnight snacks, sunrise breakfasts, and judging through lunch. Clocks spring forward at 2 AM, so set alarms early.",
+    duration: "12 hours on-site",
+    accent: { base: "#fcb2c3", glow: "#ffd9e5" },
     events: [
-      { time: "8:00 AM", title: "Breakfast" },
-      { time: "11:00 AM", title: "Hacking Ends" },
-      { time: "12:30 PM", title: "Judging & Expo" },
-      { time: "2:00 PM", title: "Awards & Closing" },
+      {
+        time: "12:00 AM",
+        title: "Midnight Snack",
+        icon: MoonStar,
+      },
+      {
+        time: "6:30 AM",
+        endTime: "8:00 AM",
+        title: "Breakfast",
+        icon: Coffee,
+      },
+      {
+        time: "8:00 AM",
+        title: "Hacking Ends",
+        icon: Flag,
+      },
+      {
+        time: "8:15 AM",
+        endTime: "11:30 AM",
+        title: "Judging",
+        icon: ClipboardCheck,
+      },
+      {
+        time: "12:00 PM",
+        endTime: "12:30 PM",
+        title: "Closing Ceremony",
+        icon: Trophy,
+      },
+      {
+        time: "12:30 PM",
+        title: "Hackathon Ends",
+        icon: DoorOpen,
+      },
     ],
   },
 ];
 
 export default function Schedule() {
-  return (
-    <section className="relative overflow-hidden bg-[#0f141a] py-20 text-white">
-      <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-white/15 to-transparent opacity-70" />
-      <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-white/15 to-transparent opacity-70" />
+  const { event } = siteConfig;
 
-      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
-        <div className="text-center">
-          <h1 className="text-5xl font-extrabold">Schedule</h1>
-          <p className="mt-3 text-lg text-white/80">
-            Cruise along two lanes of HackTJ happenings, from doors open to awards.
-          </p>
+  return (
+    <section className="relative overflow-hidden bg-[#05070a] py-24 text-white">
+      <div className="pointer-events-none absolute inset-0 opacity-60">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(252,178,195,0.3),_transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(255,217,229,0.2),_transparent_65%)]" />
+      </div>
+
+      <div className="relative mx-auto max-w-6xl px-6">
+        <div className="grid gap-10">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.6em] text-white/60">Itinerary</p>
+            <h2 className="mt-4 text-4xl font-extrabold sm:text-5xl">
+              Weekend schedule
+            </h2>
+            <p className="mt-4 text-base text-white/70 sm:text-lg">
+              Two days, hundreds of competitors, and a non-stop flow of hacking, workshops, and celebrations. Here’s how HackTJ
+              unfolds from the moment the doors open to prizes being announced.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold uppercase tracking-[0.35em] text-white/40">
+              <span>{event.dates}</span>
+              <span>&#8226;</span>
+              <span>{event.venue}</span>
+              <span>&#8226;</span>
+              <span>{event.city}</span>
+            </div>
+          </div>
         </div>
 
-        <div className="space-y-16">
-          {scheduleDays.map((day, idx) => (
-            <RoadLane key={day.day} lane={day} offset={idx * 30} />
+        <div className="mt-16 space-y-10">
+          {scheduleDays.map((day) => (
+            <article
+              key={day.day}
+              className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[#0b1016]/80 p-8 shadow-[0_30px_80px_rgba(0,0,0,0.45)] sm:p-10"
+            >
+              <div
+                className="pointer-events-none absolute inset-0 opacity-80 blur-3xl"
+                style={{
+                  background: `radial-gradient(circle, ${day.accent.glow}33, transparent 60%)`,
+                }}
+              />
+              <div className="relative">
+                <header className="flex flex-col gap-4 border-b border-white/5 pb-6 sm:flex-row sm:items-end sm:justify-between">
+                  <div>
+                    <p
+                      className="text-xs font-semibold uppercase tracking-[0.5em]"
+                      style={{ color: day.accent.base }}
+                    >
+                      {day.day} · {day.date}
+                    </p>
+                    <h3 className="mt-2 text-3xl font-bold sm:text-4xl">{day.tagline}</h3>
+                    <p className="mt-2 text-sm text-white/70">{day.description}</p>
+                  </div>
+                  <div
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.45em]"
+                    style={{ color: day.accent.base, borderColor: `${day.accent.base}55` }}
+                  >
+                    {day.duration}
+                  </div>
+                </header>
+
+                <ol className="relative mt-10 space-y-8">
+                  <span className="pointer-events-none absolute left-6 top-0 h-full w-px bg-white/15" aria-hidden="true" />
+                  {day.events.map((event) => {
+                    const timeLabel = event.endTime ? `${event.time} — ${event.endTime}` : event.time;
+                    return (
+                      <li key={`${day.day}-${event.title}`} className="relative pl-16">
+                        <span
+                          className="absolute left-0 top-1 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white"
+                          style={{ borderColor: `${day.accent.base}55`, color: day.accent.base }}
+                        >
+                          <event.icon className="h-5 w-5" />
+                        </span>
+                        <div className="flex flex-col gap-3">
+                          <time className="text-sm font-semibold uppercase tracking-[0.3em] text-white/50">
+                            {timeLabel}
+                          </time>
+                          <div className="flex-1 rounded-2xl border border-white/5 bg-white/[0.02] p-4 sm:p-5">
+                            <h4 className="text-lg font-semibold">{event.title}</h4>
+                          </div>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </div>
+            </article>
           ))}
         </div>
       </div>
     </section>
-  );
-}
-
-function RoadLane({ lane, offset }: { lane: DaySchedule; offset: number }) {
-  return (
-    <div className="relative pb-6" style={{ paddingTop: offset ? `${offset}px` : undefined }}>
-      <div className="relative mx-auto w-full min-w-[720px] rounded-[48px] border border-white/10 bg-[#111821] px-6 py-12 shadow-[0_30px_60px_rgba(0,0,0,0.45)]">
-        <div className="absolute inset-x-8 top-8 flex items-center justify-between text-xs font-semibold uppercase tracking-[0.3em] text-white/60">
-          <span>{lane.day}</span>
-          <span>{lane.date}</span>
-        </div>
-        <div className="absolute inset-x-10 top-1/2 -translate-y-1/2">
-          <div className="h-2 rounded-full bg-[#0b0f13]" />
-          <div className="absolute inset-x-6 top-1/2 h-px -translate-y-1/2 border-t-4 border-dashed border-white/60" />
-        </div>
-        <div className="relative mt-16">
-          <div className="road-scrollbar overflow-x-auto pb-2">
-            <div className="flex min-w-max items-center gap-4">
-              {lane.events.map((event, index) => (
-                <EventStop key={event.title} event={event} showConnector={index < lane.events.length - 1} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function EventStop({ event, showConnector }: { event: { time: string; title: string }; showConnector: boolean }) {
-  return (
-    <div className="flex items-center gap-3">
-      <div className="rounded-2xl border border-white/10 bg-[#161f28] px-4 py-3 text-left shadow">
-        <p className="text-sm font-semibold text-white/70">{event.time}</p>
-        <h3 className="text-lg font-bold text-white">{event.title}</h3>
-      </div>
-      {showConnector && <div className="h-1 w-10 flex-shrink-0 rounded-full bg-white/30" />}
-    </div>
   );
 }
