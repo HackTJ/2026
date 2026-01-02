@@ -19,7 +19,7 @@ const team: TeamMember[] = [
   },
   {
     name: "Shaurya Bisht",
-    bio: "",
+    bio: "Shaurya is a junior at TJHSST, and this is his second year on the team after competing in 11.0. He enjoys researching & playing with new technology and diving deep into peculiar engineering problems. In his free time, he enjoys competing at hackathons, playing cricket with friends, spending time with family, and the gym.",
     image: "/team/shaurya.jpg",
   },
   {
@@ -48,14 +48,14 @@ const team: TeamMember[] = [
     image: "/team/shreyas.jpg",
   },
   {
-    name: "Rushil Kukreja",
-    bio: "",
-    image: "/team/rushil.jpg",
-  },
-  {
     name: "Sidh Jaddu",
     bio: "Sidh is a junior at TJHSST, and this is his second year on the team after competing in HackTJ 11.0. He is interested in machine learning, specifically generative artificial intelligence, and its various applications in mitigating critical real-world problems. Aside from that, he enjoys hiking and exploring the outdoors.",
     image: "/team/sidh.jpg",
+  },
+  {
+    name: "Rushil Kukreja",
+    bio: "",
+    image: "/team/rushil.jpg",
   },
   {
     name: "Diya Kotha",
