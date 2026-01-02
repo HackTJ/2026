@@ -13,7 +13,7 @@ const navLinks = [
   { href: "/#sponsors", label: "Sponsors" },
   { href: "/#location", label: "Location" },
   { href: "/team", label: "Team" },
-  // { href: "/#past-winners", label: "Past Winners" },
+  { href: "/pastwinners", label: "Past Winners" },
 ];
 
 export default function Navbar() {
