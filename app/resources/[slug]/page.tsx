@@ -8,9 +8,9 @@ import { resourceMap, resources } from "@/lib/resources";
 import { siteConfig } from "@/lib/site-config";
 
 type ResourcePageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 const defaultOgImage = "/pink_black.png";
@@ -21,8 +21,9 @@ export function generateStaticParams() {
   return resources.map((resource) => ({ slug: resource.slug }));
 }
 
-export function generateMetadata({ params }: ResourcePageProps): Metadata {
-  const resource = resourceMap.get(params.slug);
+export async function generateMetadata({ params }: ResourcePageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const resource = resourceMap.get(slug);
 
   if (!resource) {
     return {
@@ -53,8 +54,9 @@ export function generateMetadata({ params }: ResourcePageProps): Metadata {
   };
 }
 
-export default function ResourcePage({ params }: ResourcePageProps) {
-  const resource = resourceMap.get(params.slug);
+export default async function ResourcePage({ params }: ResourcePageProps) {
+  const { slug } = await params;
+  const resource = resourceMap.get(slug);
 
   if (!resource) {
     notFound();

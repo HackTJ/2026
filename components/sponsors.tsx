@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { withBasePath } from "@/lib/paths";
@@ -160,10 +161,13 @@ function ParkingSpot({ logo }: { logo?: SponsorLogo }) {
       <div className="absolute inset-y-3 right-4 w-1 rounded-full bg-white/20" />
       <div className="flex h-full items-center justify-center rounded-xl border border-dashed border-white/25 p-4 text-sm">
         {logo ? (
-          <img
+          <Image
             src={withBasePath(logo.src)}
             alt={`${logo.name} logo`}
+            width={320}
+            height={120}
             className={`max-h-14 w-full object-contain ${logo.className ?? ""}`.trim()}
+            sizes="(min-width: 1024px) 300px, (min-width: 768px) 45vw, 90vw"
           />
         ) : (
           "Reserved"
