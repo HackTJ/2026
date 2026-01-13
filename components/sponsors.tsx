@@ -54,16 +54,16 @@ const sponsorTiers: SponsorTier[] = [
     slots: 5,
     blurb: "",
     logos: [
-      { name: "Vishnu Murthy Foundation", src: "/logos/bronze/vishnu-murthy-foundation.png", className: "max-h-24" },
       { name: "Arcfield", src: "/logos/bronze/arcfield.png" },
       { name: "TEOCO", src: "/logos/bronze/teoco.png" },
+      { name: "TEOCO", src: "/logos/bronze/cci.png" },
     ],
   },
   {
     name: "Prize",
     slots: 3,
     blurb: "",
-    logos: [],
+    logos: [{ name: "Vishnu Murthy Foundation", src: "/logos/bronze/vishnu-murthy-foundation.png", className: "max-h-24" },],
   },
 ];
 
