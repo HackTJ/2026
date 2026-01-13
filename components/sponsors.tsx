@@ -1,10 +1,8 @@
-const SPONSOR_CONTACT_EMAILS = ["shaurya@hacktj.org", "aanya@hacktj.org"];
-const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+import Link from "next/link";
 
-const withBasePath = (path: string) => {
-  if (!path) return BASE_PATH;
-  return path.startsWith("/") ? `${BASE_PATH}${path}` : `${BASE_PATH}/${path}`;
-};
+import { withBasePath } from "@/lib/paths";
+
+const SPONSOR_CONTACT_EMAILS = ["shaurya@hacktj.org", "aanya@hacktj.org"];
 
 type SponsorLogo = {
   name: string;
@@ -90,14 +88,14 @@ export default function Sponsors() {
               sponsors@hacktj.org
             </a>{" "}
             or{" "}
-            <a
-              href={withBasePath("/sponsorship13_0.pdf")}
+            <Link
+              href="/resources/sponsorship-packet"
               target="_blank"
               rel="noreferrer"
               className="underline decoration-dotted underline-offset-4"
             >
               grab the sponsorship packet
-            </a>
+            </Link>
             .
           </p>
         </div>
