@@ -39,6 +39,8 @@ const sponsorTiers: SponsorTier[] = [
     logos: [
       { name: "Roam", src: "/logos/gold/roam.png" },
       { name: "Susa", src: "/logos/gold/susa.png" },
+      { name: "M.C. Dean", src: "/logos/gold/mcdean.png" },
+      { name:"Coder", src:"/logos/gold/coder.png" }
     ],
   },
   {

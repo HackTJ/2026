@@ -38,56 +38,45 @@ type DaySchedule = {
 const scheduleDays: DaySchedule[] = [
   {
     day: "Day 1",
-    date: "Saturday · March 8",
+    date: "Saturday · March 7",
     tagline: "Kickoff + Overnight Sprint",
     description:
-      "Staggered check-ins start at 9 AM, followed by fairs, workshops, panels, and late-night submissions.",
+      "Check-in opens at 9 AM, then ceremonies, workshops, panels, and late-night checkpoints keep the energy high.",
     duration: "15 hours on-site",
     accent: { base: "#fcb2c3", glow: "#ffd9e5" },
     events: [
       {
         time: "9:00 AM",
-        title: "Doors Open",
+        endTime: "11:00 AM",
+        title: "Student Check-In",
         icon: DoorOpen,
       },
       {
-        time: "9:00 AM",
-        endTime: "12:00 PM",
-        title: "Sponsor Fair",
-        icon: Handshake,
-      },
-      {
-        time: "12:00 PM",
-        title: "Doors Close",
-        icon: Flag,
-      },
-      {
-        time: "12:00 PM",
-        endTime: "12:30 PM",
-        title: "Opening Ceremony",
+        time: "11:00 AM",
+        title: "Opening Ceremony & Doors Close",
         icon: Sparkles,
       },
       {
-        time: "12:30 PM",
+        time: "11:30 AM",
         title: "Hacking Begins",
         icon: Rocket,
       },
       {
-        time: "12:30 PM",
+        time: "11:30 AM",
         endTime: "1:00 PM",
         title: "Team Building",
         icon: Handshake,
       },
       {
-        time: "1:00 PM",
-        title: "Submit Check-In Form",
-        icon: ClipboardCheck,
+        time: "11:30 AM",
+        endTime: "1:00 PM",
+        title: "Resources & Q&A for Beginners",
+        icon: FlaskConical,
       },
       {
-        time: "12:30 PM",
-        endTime: "1:00 PM",
-        title: "Resources & Q&A",
-        icon: FlaskConical,
+        time: "1:00 PM",
+        title: "Check-In Form Due",
+        icon: ClipboardCheck,
       },
       {
         time: "1:00 PM",
@@ -100,6 +89,17 @@ const scheduleDays: DaySchedule[] = [
         endTime: "6:00 PM",
         title: "Workshops",
         icon: FlaskConical,
+      },
+      {
+        time: "6:00 PM",
+        title: "Workshops End",
+        icon: Flag,
+      },
+      {
+        time: "6:00 PM",
+        endTime: "7:00 PM",
+        title: "VIP Sponsor Event",
+        icon: Handshake,
       },
       {
         time: "7:00 PM",
@@ -115,14 +115,14 @@ const scheduleDays: DaySchedule[] = [
       },
       {
         time: "11:30 PM",
-        title: "Submit Project Category",
+        title: "Team Name + Category Form Due",
         icon: ClipboardCheck,
       },
     ],
   },
   {
     day: "Day 2",
-    date: "Sunday · March 9",
+    date: "Sunday · March 8",
     tagline: "Ship, Show, Celebrate",
     description:
       "Midnight snacks, sunrise breakfasts, and judging through lunch. Clocks spring forward at 2 AM, so set alarms early.",
@@ -131,19 +131,34 @@ const scheduleDays: DaySchedule[] = [
     events: [
       {
         time: "12:00 AM",
-        title: "Midnight Snack",
+        title: "Pizza Served",
+        icon: UtensilsCrossed,
+      },
+      {
+        time: "2:00 AM",
+        title: "Daylight Savings Shift",
         icon: MoonStar,
       },
       {
-        time: "6:30 AM",
-        endTime: "8:00 AM",
+        time: "6:00 AM",
+        endTime: "7:30 AM",
         title: "Breakfast",
         icon: Coffee,
       },
       {
+        time: "7:30 AM",
+        title: "Judges Meeting",
+        icon: ClipboardCheck,
+      },
+      {
         time: "8:00 AM",
-        title: "Hacking Ends",
+        title: "Project Submission Deadline",
         icon: Flag,
+      },
+      {
+        time: "8:00 AM",
+        title: "Hacking Ends · Prep for Judging",
+        icon: Rocket,
       },
       {
         time: "8:15 AM",
@@ -152,15 +167,15 @@ const scheduleDays: DaySchedule[] = [
         icon: ClipboardCheck,
       },
       {
+        time: "11:30 AM",
+        title: "Judging Ends & Results",
+        icon: Sparkles,
+      },
+      {
         time: "12:00 PM",
         endTime: "12:30 PM",
         title: "Closing Ceremony",
         icon: Trophy,
-      },
-      {
-        time: "12:30 PM",
-        title: "Hackathon Ends",
-        icon: DoorOpen,
       },
     ],
   },
