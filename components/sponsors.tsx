@@ -33,7 +33,7 @@ const sponsorTiers: SponsorTier[] = [
   },
   {
     name: "Gold",
-    slots: 4,
+    slots: 5,
     blurb: "",
     logos: [
       { name: "Roam", src: "/logos/gold/roam.png" },
@@ -46,7 +46,11 @@ const sponsorTiers: SponsorTier[] = [
     name: "Silver",
     slots: 5,
     blurb: "",
-    logos: [{ name: "Hudson River Trading", src: "/logos/silver/hrt.png" }]
+    logos: [{ name: "Terac", src: "/logos/silver/terac.svg" },
+      { name: "Hudson River Trading", src: "/logos/silver/hrt.png" },
+      { name: "Appian", src: "/logos/silver/appian.png" }
+    ],
+
   },
   {
     name: "Bronze",
