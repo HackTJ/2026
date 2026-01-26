@@ -37,7 +37,6 @@ const sponsorTiers: SponsorTier[] = [
     blurb: "",
     logos: [
       { name: "Roam", src: "/logos/gold/roam.png" },
-      { name: "Susa", src: "/logos/gold/susa.png" },
       { name: "M.C. Dean", src: "/logos/gold/mcdean.png" },
       { name:"Coder", src:"/logos/gold/coder.png" }
     ],
@@ -48,7 +47,10 @@ const sponsorTiers: SponsorTier[] = [
     blurb: "",
     logos: [{ name: "Terac", src: "/logos/silver/terac.svg" },
       { name: "Hudson River Trading", src: "/logos/silver/hrt.png" },
-      { name: "Appian", src: "/logos/silver/appian.png" }
+      { name: "Appian", src: "/logos/silver/appian.png" },
+      { name: "Susa", src: "/logos/silver/susa.png" },
+      { name: "Clasiq", src: "/logos/silver/clasiq.png" },
+      { name: "Vercel", src: "/logos/silver/vercel.webp" }
     ],
 
   },
@@ -59,14 +61,17 @@ const sponsorTiers: SponsorTier[] = [
     logos: [
       { name: "Arcfield", src: "/logos/bronze/arcfield.png" },
       { name: "TEOCO", src: "/logos/bronze/teoco.png" },
-      { name: "TEOCO", src: "/logos/bronze/cci.png" },
+      { name: "CCI", src: "/logos/bronze/cci.png" },
+      { name: "Phasecraft", src:"/logos/bronze/phasecraft.webp", className: "max-h-40"},
     ],
   },
   {
     name: "Prize",
     slots: 3,
     blurb: "",
-    logos: [{ name: "Vishnu Murthy Foundation", src: "/logos/bronze/vishnu-murthy-foundation.png", className: "max-h-24" },],
+    logos: [{ name: "Vishnu Murthy Foundation", src: "/logos/bronze/vishnu-murthy-foundation.png", className: "max-h-24" },
+      { name: "Yale", src:"/logos/bronze/yale.png", className: "max-h-20"},
+    ],
   },
 ];
 
