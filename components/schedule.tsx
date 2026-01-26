@@ -41,14 +41,14 @@ const scheduleDays: DaySchedule[] = [
     date: "Saturday · March 7",
     tagline: "Kickoff + Overnight Sprint",
     description:
-      "Check-in opens at 9 AM, then ceremonies, workshops, panels, and late-night checkpoints keep the energy high.",
+      "",
     duration: "15 hours on-site",
     accent: { base: "#fcb2c3", glow: "#ffd9e5" },
     events: [
       {
         time: "9:00 AM",
         endTime: "11:00 AM",
-        title: "Student Check-In",
+        title: "Student Check-In + Sponsorship fair",
         icon: DoorOpen,
       },
       {
@@ -63,7 +63,7 @@ const scheduleDays: DaySchedule[] = [
       },
       {
         time: "11:30 AM",
-        endTime: "1:00 PM",
+        endTime: "12:00 PM",
         title: "Team Building",
         icon: Handshake,
       },
@@ -96,12 +96,6 @@ const scheduleDays: DaySchedule[] = [
         icon: Flag,
       },
       {
-        time: "6:00 PM",
-        endTime: "7:00 PM",
-        title: "VIP Sponsor Event",
-        icon: Handshake,
-      },
-      {
         time: "7:00 PM",
         endTime: "8:00 PM",
         title: "Dinner",
@@ -123,9 +117,9 @@ const scheduleDays: DaySchedule[] = [
   {
     day: "Day 2",
     date: "Sunday · March 8",
-    tagline: "Ship, Show, Celebrate",
+    tagline: "Ship Day!",
     description:
-      "Midnight snacks, sunrise breakfasts, and judging through lunch. Clocks spring forward at 2 AM, so set alarms early.",
+      "",
     duration: "12 hours on-site",
     accent: { base: "#fcb2c3", glow: "#ffd9e5" },
     events: [
@@ -198,10 +192,6 @@ export default function Schedule() {
             <h2 className="mt-4 text-4xl font-extrabold sm:text-5xl">
               Weekend schedule
             </h2>
-            <p className="mt-4 text-base text-white/70 sm:text-lg">
-              Two days, hundreds of competitors, and a non-stop flow of hacking, workshops, and celebrations. Here’s how HackTJ
-              unfolds from the moment the doors open to prizes being announced.
-            </p>
             <div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold uppercase tracking-[0.35em] text-white/40">
               <span>{event.dates}</span>
               <span>&#8226;</span>
