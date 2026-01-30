@@ -1,14 +1,18 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/lib/site-config";
+import { siteConfig, type RegistrationStatus } from "@/lib/site-config";
 
-const registrationCopy = {
+const registrationCopy: Record<
+  RegistrationStatus,
+  { label: string; helper: string; hasLink: boolean }
+> = {
   open: {
-    label: "Register",
+    label: "Participant Registration",
     helper: "",
     hasLink: true,
   },
@@ -22,12 +26,47 @@ const registrationCopy = {
     helper: "",
     hasLink: false,
   },
-} as const;
+};
+
+const MAX_TIMEOUT_MS = 2147483647;
 
 export default function Hero() {
   const registration = siteConfig.registration;
-  const copy = registrationCopy[registration.status];
-  const showLink = copy.hasLink && registration.link;
+  const [status, setStatus] = useState<RegistrationStatus>(registration.status);
+  const copy = registrationCopy[status];
+  const showParticipantLink = status === "open" && Boolean(registration.links?.participants);
+  const showMentorLink = status === "open" && Boolean(registration.links?.mentors);
+
+  useEffect(() => {
+    if (registration.status !== "not_open_yet") {
+      return;
+    }
+
+    const opensAtMs = new Date(registration.opensAt).getTime();
+    if (Number.isNaN(opensAtMs)) {
+      return;
+    }
+
+    const updateStatus = () => {
+      if (Date.now() >= opensAtMs) {
+        setStatus("open");
+      }
+    };
+
+    updateStatus();
+
+    if (Date.now() >= opensAtMs) {
+      return;
+    }
+
+    const msUntilOpen = opensAtMs - Date.now();
+    if (msUntilOpen > MAX_TIMEOUT_MS) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(updateStatus, msUntilOpen);
+    return () => window.clearTimeout(timeoutId);
+  }, [registration.opensAt, registration.status]);
 
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden bg-[#6B9AC4] text-white">
@@ -57,18 +96,28 @@ export default function Hero() {
           </p>
 
           <div className="mt-4 flex flex-wrap items-center justify-end gap-4">
-            {showLink ? (
+            {showParticipantLink ? (
               <Button
                 asChild
                 className="rounded-full bg-white px-8 text-gray-900 shadow-lg shadow-black/25 transition hover:-translate-y-0.5 hover:bg-white"
               >
-                <Link href={registration.link!} target="_blank" rel="noreferrer">
+                <Link href={registration.links.participants} target="_blank" rel="noreferrer">
                   {copy.label}
                 </Link>
               </Button>
             ) : (
               <Button disabled className="rounded-full bg-white/40 px-8 text-gray-900 shadow-lg shadow-black/25">
                 {copy.label}
+              </Button>
+            )}
+            {showMentorLink && (
+              <Button
+                asChild
+                className="rounded-full bg-white px-8 text-gray-900 shadow-lg shadow-black/25 transition hover:-translate-y-0.5 hover:bg-white"
+              >
+                <Link href={registration.links.mentors} target="_blank" rel="noreferrer">
+                  Mentor/Judge Signup
+                </Link>
               </Button>
             )}
             <Button

@@ -15,7 +15,7 @@ export default function About() {
         <div className="md:col-span-3">
           <div className="rounded-3xl border border-white/10 bg-[#0c1016] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.45)]">
             <p className="text-lg font-medium leading-relaxed text-white/90">
-              HackTJ is the world&apos;s largest high school hackathon, hosted annually at Thomas Jefferson High School for Science
+              HackTJ is the world&apos;s largest high school hackathon, hosted annually by Thomas Jefferson High School for Science
               and Technology. Students from across the region come together for a weekend hours of coding, collaboration, and creativity.
               Whether you&apos;re a beginner or an experienced programmer, HackTJ provides an opportunity to learn new skills, build
               innovative projects, and connect with like-minded peers. Join us for workshops, mentorship, prizes, and an unforgettable

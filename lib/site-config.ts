@@ -15,6 +15,12 @@ export const siteConfig = {
   },
   registration: {
     status: "not_open_yet" as RegistrationStatus,
-    link: "https://hacktj.org/register",
+    opensAt: "2026-01-26T11:59:00-05:00",
+    links: {
+      participants:
+        "https://docs.google.com/forms/d/e/1FAIpQLScs55nEb53Lx4SCE1-LfeO8Tz061UEWihGcVCaPTGiTFbb0uA/viewform?usp=header",
+      mentors:
+        "https://docs.google.com/forms/d/e/1FAIpQLScZ9WMaB97UOzTgafRNP81-wdzYBJSqrxa8eZ7vrpNx3XwzGQ/viewform?usp=dialog",
+    },
   },
 };

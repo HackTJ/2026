@@ -43,14 +43,17 @@ const sponsorTiers: SponsorTier[] = [
   },
   {
     name: "Silver",
-    slots: 6,
+    slots: 9,
     blurb: "",
     logos: [{ name: "Terac", src: "/logos/silver/terac.svg" },
       { name: "Hudson River Trading", src: "/logos/silver/hrt.png" },
       { name: "Appian", src: "/logos/silver/appian.png" },
       { name: "Susa", src: "/logos/silver/susa.png" },
-      { name: "Clasiq", src: "/logos/silver/clasiq.png" },
-      { name: "Vercel", src: "/logos/silver/vercel.webp" }
+      { name: "Clasiq", src: "/logos/silver/clasiq.png", className: "max-h-20"},
+      { name: "Vercel", src: "/logos/silver/vercel.webp" },
+      { name: "Yubico", src: "logos/silver/yubico.png"},
+      { name: "VDOE", src: "logos/silver/vdoe.png"}
+
     ],
 
   },

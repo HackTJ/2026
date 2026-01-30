@@ -69,7 +69,7 @@ const scheduleDays: DaySchedule[] = [
       },
       {
         time: "11:30 AM",
-        endTime: "1:00 PM",
+        endTime: "12:00 PM",
         title: "Resources & Q&A for Beginners",
         icon: FlaskConical,
       },
