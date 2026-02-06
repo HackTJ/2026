@@ -65,7 +65,7 @@ const faqSections: FAQSection[] = [
         question: "Is there a deadline?",
         answer: [
           "Registration for participants, volunteers, mentors, judges, workshop hosts, and photographers opens around January 27th.",
-          "Participant registration closes February 10th—this deadline is hard.",
+          "Participant registration closes February 6th—this deadline is hard.",
           "Judges, mentors, and volunteers may register right up until the event begins.",
         ],
       },
