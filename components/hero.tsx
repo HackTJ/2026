@@ -12,7 +12,7 @@ const registrationCopy: Record<
   { label: string; helper: string; hasLink: boolean }
 > = {
   open: {
-    label: "Participant Registration",
+    label: "Participant Registration Closed",
     helper: "",
     hasLink: true,
   },
@@ -34,7 +34,7 @@ export default function Hero() {
   const registration = siteConfig.registration;
   const [status, setStatus] = useState<RegistrationStatus>(registration.status);
   const copy = registrationCopy[status];
-  const showParticipantLink = status === "open" && Boolean(registration.links?.participants);
+  const showParticipantLink = status === "closed" && Boolean(registration.links?.participants);
   const showMentorLink = status === "open" && Boolean(registration.links?.mentors);
 
   useEffect(() => {
