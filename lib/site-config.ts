@@ -14,7 +14,7 @@ export const siteConfig = {
     city: "Tysons, VA",
   },
   registration: {
-    status: "not_open_yet" as RegistrationStatus,
+    status: "closed" as RegistrationStatus,
     opensAt: "2026-01-26T11:59:00-05:00",
     links: {
       participants:
