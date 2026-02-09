@@ -27,7 +27,7 @@ const sponsorTiers: SponsorTier[] = [
     slots: 2,
     blurb: "",
     logos: [
-      { name: "TJPF", src: "/logos/partner/tjpartnership.png" },
+      { name: "TJPF", src: "/logos/partner/tjpartnership.png", className: "max-h-35" },
       { name: "Cvent", src: "/logos/partner/cvent.png" },
     ],
   },
@@ -38,7 +38,8 @@ const sponsorTiers: SponsorTier[] = [
     logos: [
       { name: "Roam", src: "/logos/gold/roam.png" },
       { name: "M.C. Dean", src: "/logos/gold/mcdean.png" },
-      { name:"Coder", src:"/logos/gold/coder.png" }
+      { name:"Coder", src:"/logos/gold/coder.png" },
+      { name: "Robinhood", src: "/logos/gold/robinhood.png" },
     ],
   },
   {
@@ -52,8 +53,8 @@ const sponsorTiers: SponsorTier[] = [
       { name: "Clasiq", src: "/logos/silver/clasiq.png", className: "max-h-20"},
       { name: "Vercel", src: "/logos/silver/vercel.webp" },
       { name: "Yubico", src: "logos/silver/yubico.png"},
-      { name: "VDOE", src: "logos/silver/vdoe.png"}
-
+      { name: "VDOE", src: "logos/silver/vdoe.png"},
+      { name: "Jane Street", src: "logos/silver/janestreet.png"},
     ],
 
   },
