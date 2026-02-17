@@ -96,6 +96,12 @@ const scheduleDays: DaySchedule[] = [
         icon: Flag,
       },
       {
+        time: "6:00 PM",
+        endTime: "7:00 PM",
+        title: "VIP Sponsor Event",
+        icon: Handshake,
+      },
+      {
         time: "7:00 PM",
         endTime: "8:00 PM",
         title: "Dinner",
