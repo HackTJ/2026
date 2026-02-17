@@ -36,6 +36,7 @@ export default function Hero() {
   const copy = registrationCopy[status];
   const showParticipantLink = status === "closed" && Boolean(registration.links?.participants);
   const showMentorLink = status === "open" && Boolean(registration.links?.mentors);
+  const showVolunteerLink = status === "open" && Boolean(registration.links?.volunteers);
 
   useEffect(() => {
     if (registration.status !== "not_open_yet") {
@@ -117,6 +118,16 @@ export default function Hero() {
               >
                 <Link href={registration.links.mentors} target="_blank" rel="noreferrer">
                   Mentor/Judge Signup
+                </Link>
+              </Button>
+            )}
+            {showVolunteerLink && (
+              <Button
+                asChild
+                className="rounded-full bg-white px-8 text-gray-900 shadow-lg shadow-black/25 transition hover:-translate-y-0.5 hover:bg-white"
+              >
+                <Link href={registration.links.volunteers} target="_blank" rel="noreferrer">
+                  Volunteer Signup
                 </Link>
               </Button>
             )}
