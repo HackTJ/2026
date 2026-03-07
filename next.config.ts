@@ -16,20 +16,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  async redirects() {
-  return [
-    {
-      source: '/hanami',
-      destination: 'http://10.180.8.148',
-      permanent: false,
-    },
-    {
-      source: '/hanami/',
-      destination: 'http://10.180.8.148',
-      permanent: false,
-    },
-  ]
-}
 };
 
 export default nextConfig;
