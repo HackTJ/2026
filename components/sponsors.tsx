@@ -68,6 +68,7 @@ const sponsorTiers: SponsorTier[] = [
       { name: "CCI", src: "/logos/bronze/cci.png" },
       { name: "Phasecraft", src:"/logos/bronze/phasecraft.webp", className: "max-h-40"},
       { name: "Emergence", src:"/logos/bronze/emergence.jpeg" },
+      { name: "alarm.com", src:"/logos/bronze/alarm.png" },
     ],
   },
   {
