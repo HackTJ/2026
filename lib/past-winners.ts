@@ -29,7 +29,7 @@ export type Winner = {
 export type WinnersYear = {
   year: number;
   headline: string;
-  description: string;
+  description?: string;
   accent: {
     primary: string;
     secondary: string;
@@ -39,10 +39,130 @@ export type WinnersYear = {
 
 export const pastWinners: WinnersYear[] = [
   {
+    year: 2026,
+    headline: "HackTJ 13.0",
+    description:
+      "A look at the 2026 winners.",
+    accent: {
+      primary: "#fcb2c3",
+      secondary: "#4c3a26",
+    },
+    winners: [
+      {
+        title: "Best Overall Hack",
+        description:
+          "",
+        name: "SafeWalkr",
+        picture: "/pastwinners/2026/overall2026winner.jpg",
+        winners: "Isaac Leetyn, Ashwath Reddy Muppa, Daniil Prokofev",
+        icon: Award,
+      },
+      {
+        title: "Best AI/ML Hack",
+        description:
+          "",
+        name: "vigil",
+        picture: "/pastwinners/2026/aiml2026winner.jpg",
+        winners: "Salban Nithilaselvan, Aneesh Peri, Ritwik Sinha, Aarya Srikanth",
+        icon: Brain,
+      },
+      {
+        title: "Best Web Hack",
+        description:
+          "",
+        name: "Shopper Stopper",
+        picture: "/pastwinners/2026/web2026winner.jpg",
+        winners: "Shritha Adapala, Saadhya Munigela",
+        icon: Globe,
+      },
+      {
+        title: "Best Mobile Hack",
+        description:
+          "",
+        name: "Fern.ai",
+        picture: "/pastwinners/2026/mobile2026winner.jpg",
+        winners: "Ishaan Gulati, Anay Shekhar, Varun Surianarayanan",
+        icon: Smartphone,
+      },
+      {
+        title: "Best Beginner Hack",
+        description:
+          "",
+        name: "AarushSidMogs",
+        picture: "/pastwinners/2026/beginner2026winner.jpg",
+        winners: "Aarush Gutha, Sidharth Mantri",
+        icon: Sparkles,
+      },
+      {
+        title: "Best Biomedical Hack",
+        description:
+          "",
+        name: "VoiceRecovery",
+        picture: "/pastwinners/2026/biomed2026winner.jpg",
+        winners: "Hanseon Lee, Jake Kim, Immanuel Yim",
+        icon: HeartPulse,
+      },
+      {
+        title: "Best Sustainability Hack",
+        description:
+          "",
+        name: "SubFlow",
+        picture: "/pastwinners/2026/sustainability2026winner.jpg",
+        winners: "Josh Fields, Justin Cafaro, Hayden Neiberline, Kylie Liu",
+        icon: Leaf,
+      },
+      {
+        title: "Best Finance Hack",
+        description:
+          "",
+        name: "MyHouse",
+        picture: "/pastwinners/2026/finance2026winner.jpg",
+        winners: "Aditya Khandelwal, Armaan Ahmed, Akshaya Lohia",
+        icon: Wallet,
+      },
+      {
+        title: "Best Cyber Technology Hack",
+        description:
+          "",
+        name: "AgentGuard",
+        picture: "/pastwinners/2026/cyber2026winner.jpg",
+        winners: "Rohan Honganoor, Jayden Yang, Joshua Zhou, Andrew Chen",
+        icon: ShieldCheck,
+      },
+      {
+        title: "Best Quantum Hack",
+        description:
+          "",
+        name: "Qore",
+        picture: "/pastwinners/2026/quantum2026winner.jpg",
+        winners: "Sarah Trainer, Haasini Govindu, Anna Park, Aditi Saravanan",
+        icon: Atom,
+      },
+      {
+        title: "Best Lifestyle Hack",
+        description:
+          "",
+        name: "OmniSign",
+        picture: "/pastwinners/2026/lifestyle2026winner.jpg",
+        winners: "Fiona MacGarvey, Medha Pappula",
+        icon: Sun,
+      },
+      {
+        title: "Best Use of Terac",
+        description:
+          "",
+        name: "GridWatch",
+        picture: "/pastwinners/2026/terac2026winner.jpg",
+        winners: "Eshan Gillani, August Bhatt, Mohan East, Zakhar Liskovyi",
+        icon: Globe,
+      }
+    ]
+  },
+  {
     year: 2025,
     headline: "HackTJ 12.0",
     description:
-      "A sky themed palette set the stage for our 2025 expedition, spotlighting the teams that pushed to new horizons.",
+      "A look at the 2025 winners.",
     accent: {
       primary: "#83BDEC",
       secondary: "#A7D0F1",
@@ -171,7 +291,7 @@ export const pastWinners: WinnersYear[] = [
     year: 2024,
     headline: "HackTJ 11.0",
     description:
-      "From pose-aware cameras to carbon trackers, the 2024 cohort proved just how broad student innovation can be.",
+      "A look at the 2024 winners.",
     accent: {
       primary: "#d1aefd",
       secondary: "#e7d2ff",
@@ -223,11 +343,19 @@ export const pastWinners: WinnersYear[] = [
         icon: Smartphone,
       },
       {
+        title: "Best Environmental Science Hack",
+        description:
+          "Your Carbon Foot uses NLP to estimate emissions and suggest greener routines.",
+        name: "Your Carbon Foot",
+        picture: "/pastwinners/2024/BestEnvironmentalScienceHack.jpg",
+        winners: "Maneesh Vaddi, Kevin Su, Rishab Nanduri",
+        icon: Leaf,
+      },
+      {
         title: "Best Beginner Hack",
         description:
           "Speaksearch pairs speech recognition with head tracking so anyone can browse hands-free.",
         name: "Speaksearch",
-        picture: "/pastwinners/2024/BestBeginnerHack.jpg",
         winners: "Adhiraj Chhoda, Prateek Vadde",
         icon: Sparkles,
       },
@@ -254,14 +382,6 @@ export const pastWinners: WinnersYear[] = [
         name: "IntegriKey",
         winners: "Aneesh Kalla, Abhikurupati",
         icon: GraduationCap,
-      },
-      {
-        title: "Best Environmental Science Hack",
-        description:
-          "Your Carbon Foot uses NLP to estimate emissions and suggest greener routines.",
-        name: "Your Carbon Foot",
-        winners: "Maneesh Vaddi, Kevin Su, Rishab Nanduri",
-        icon: Leaf,
       },
       {
         title: "Best Cyber Technology Hack",
