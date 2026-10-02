@@ -8,7 +8,9 @@
     "build:static": "npm run build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "./deploy.sh"
+    "deploy": "node scripts/deploy.mjs",
+    "deploy:homepage": "node scripts/deploy.mjs homepage",
+    "deploy:all": "node scripts/deploy.mjs all"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
