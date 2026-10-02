@@ -1,8 +1,8 @@
-import Navbar from "@/components/navbar";
-import Schedule from "@/components/schedule";
 import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
+import Museum from "@/components/museum";
 
-export default function SchedulePage() {
+export default function MuseumPage() {
   return (
     <div
       className="min-h-screen"
@@ -13,10 +13,10 @@ export default function SchedulePage() {
       }}
     >
       <Navbar />
-      <div className="pt-24">
-        <Schedule />
+      <div className="pt-8 md:pt-[70px]">
+        <Museum />
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 }

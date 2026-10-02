@@ -1,274 +1,461 @@
-import {
-  ClipboardCheck,
-  Coffee,
-  DoorOpen,
-  Flag,
-  FlaskConical,
-  Handshake,
-  MoonStar,
-  Rocket,
-  Sparkles,
-  Trophy,
-  UtensilsCrossed,
-  type LucideIcon,
-} from "lucide-react";
+"use client";
 
+import { Clock3, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+
+import {
+  scheduleCategories,
+  scheduleDays,
+  type ScheduleCategory,
+  type ScheduleDay,
+  type ScheduleEvent,
+} from "@/lib/schedule-data";
 import { siteConfig } from "@/lib/site-config";
 
-type ScheduleEvent = {
-  time: string;
-  endTime?: string;
-  title: string;
-  icon: LucideIcon;
+const HOUR_HEIGHT = 92;
+const MIN_EVENT_HEIGHT = 64;
+
+const categoryColors: Record<
+  ScheduleCategory,
+  { accent: string; surface: string }
+> = {
+  milestone: { accent: "#ff83ac", surface: "#352033" },
+  ceremony: { accent: "#f4c575", surface: "#342b27" },
+  food: { accent: "#ffa992", surface: "#372927" },
+  workshop: { accent: "#83c9e6", surface: "#203341" },
+  community: { accent: "#c5a8f0", surface: "#302940" },
+  judging: { accent: "#9cdbbc", surface: "#21362f" },
 };
 
-type DaySchedule = {
-  day: string;
-  date: string;
-  tagline: string;
-  description: string;
-  duration: string;
-  accent: {
-    base: string;
-    glow: string;
-  };
-  events: ScheduleEvent[];
+type PositionedEvent = {
+  event: ScheduleEvent;
+  top: number;
+  height: number;
+  bottom: number;
+  lane: number;
+  laneCount: number;
 };
 
-const scheduleDays: DaySchedule[] = [
-  {
-    day: "Day 1",
-    date: "Saturday · March 7",
-    tagline: "Kickoff + Overnight Sprint",
-    description:
-      "",
-    duration: "15 hours on-site",
-    accent: { base: "#fcb2c3", glow: "#ffd9e5" },
-    events: [
-      {
-        time: "9:00 AM",
-        endTime: "11:00 AM",
-        title: "Student Check-In + Sponsorship fair",
-        icon: DoorOpen,
-      },
-      {
-        time: "11:00 AM",
-        title: "Opening Ceremony & Doors Close",
-        icon: Sparkles,
-      },
-      {
-        time: "11:30 AM",
-        title: "Hacking Begins",
-        icon: Rocket,
-      },
-      {
-        time: "11:30 AM",
-        endTime: "12:00 PM",
-        title: "Team Building",
-        icon: Handshake,
-      },
-      {
-        time: "11:30 AM",
-        endTime: "12:00 PM",
-        title: "Resources & Q&A for Beginners",
-        icon: FlaskConical,
-      },
-      {
-        time: "1:00 PM",
-        title: "Check-In Form Due",
-        icon: ClipboardCheck,
-      },
-      {
-        time: "1:00 PM",
-        endTime: "2:00 PM",
-        title: "Lunch",
-        icon: UtensilsCrossed,
-      },
-      {
-        time: "2:00 PM",
-        endTime: "6:00 PM",
-        title: "Workshops",
-        icon: FlaskConical,
-      },
-      {
-        time: "6:00 PM",
-        title: "Workshops End",
-        icon: Flag,
-      },
-      {
-        time: "6:00 PM",
-        endTime: "7:00 PM",
-        title: "VIP Sponsor Event",
-        icon: Handshake,
-      },
-      {
-        time: "7:00 PM",
-        endTime: "8:00 PM",
-        title: "Dinner",
-        icon: UtensilsCrossed,
-      },
-      {
-        time: "8:00 PM",
-        endTime: "9:00 PM",
-        title: "Women in Tech Panel",
-        icon: Sparkles,
-      },
-      {
-        time: "11:30 PM",
-        title: "Team Name + Category Form Due",
-        icon: ClipboardCheck,
-      },
-    ],
-  },
-  {
-    day: "Day 2",
-    date: "Sunday · March 8",
-    tagline: "Ship Day!",
-    description:
-      "",
-    duration: "12 hours on-site",
-    accent: { base: "#fcb2c3", glow: "#ffd9e5" },
-    events: [
-      {
-        time: "12:00 AM",
-        title: "Pizza Served",
-        icon: UtensilsCrossed,
-      },
-      {
-        time: "2:00 AM",
-        title: "Daylight Savings Shift",
-        icon: MoonStar,
-      },
-      {
-        time: "6:00 AM",
-        endTime: "7:30 AM",
-        title: "Breakfast",
-        icon: Coffee,
-      },
-      {
-        time: "7:30 AM",
-        title: "Judges Meeting",
-        icon: ClipboardCheck,
-      },
-      {
-        time: "8:00 AM",
-        title: "Project Submission Deadline",
-        icon: Flag,
-      },
-      {
-        time: "8:00 AM",
-        title: "Hacking Ends · Prep for Judging",
-        icon: Rocket,
-      },
-      {
-        time: "8:15 AM",
-        endTime: "11:30 AM",
-        title: "Judging",
-        icon: ClipboardCheck,
-      },
-      {
-        time: "11:30 AM",
-        title: "Judging Ends & Results",
-        icon: Sparkles,
-      },
-      {
-        time: "12:00 PM",
-        endTime: "12:30 PM",
-        title: "Closing Ceremony",
-        icon: Trophy,
-      },
-    ],
-  },
-];
+function minutes(time: string) {
+  const [hour, minute] = time.split(":").map(Number);
+  return hour * 60 + minute;
+}
 
-export default function Schedule() {
-  const { event } = siteConfig;
+function formatTime(time: string) {
+  const [hour, minute] = time.split(":").map(Number);
+  const normalizedHour = hour % 24;
+  const displayHour = normalizedHour % 12 || 12;
+  return `${displayHour}:${String(minute).padStart(2, "0")} ${normalizedHour < 12 ? "AM" : "PM"}`;
+}
+
+function dateTime(day: ScheduleDay, time: string) {
+  const offset =
+    day.id === "sunday" && minutes(time) >= 180 ? "-04:00" : "-05:00";
+  return `${day.date}T${time}:00${offset}`;
+}
+
+function displayMinute(day: ScheduleDay, time: string) {
+  const value = minutes(time);
+  // The 2:00–3:00 AM hour does not exist on Sunday, March 8, 2026.
+  return day.id === "sunday" && value >= 180 ? value - 60 : value;
+}
+
+function calendarStart(day: ScheduleDay) {
+  return day.id === "saturday" ? 9 * 60 : 0;
+}
+
+function calendarHeight(day: ScheduleDay) {
+  return (day.id === "saturday" ? 15.5 : 12.5) * HOUR_HEIGHT;
+}
+
+function positionEvents(day: ScheduleDay): PositionedEvent[] {
+  const events = day.events
+    .filter((event) => !event.daylightSavingNote)
+    .map((event) => {
+      const top =
+        ((displayMinute(day, event.start) - calendarStart(day)) / 60) *
+        HOUR_HEIGHT;
+      const duration = event.end
+        ? ((displayMinute(day, event.end) - displayMinute(day, event.start)) /
+            60) *
+          HOUR_HEIGHT
+        : 0;
+      const height = Math.max(duration, MIN_EVENT_HEIGHT);
+      return {
+        event,
+        top,
+        height,
+        bottom: top + height,
+        lane: 0,
+        laneCount: 1,
+      };
+    })
+    .sort((a, b) => a.top - b.top || b.bottom - a.bottom);
+
+  const groups: PositionedEvent[][] = [];
+  let group: PositionedEvent[] = [];
+  let groupBottom = -1;
+
+  for (const event of events) {
+    if (group.length && event.top >= groupBottom) {
+      groups.push(group);
+      group = [];
+      groupBottom = -1;
+    }
+    group.push(event);
+    groupBottom = Math.max(groupBottom, event.bottom);
+  }
+  if (group.length) groups.push(group);
+
+  for (const overlapping of groups) {
+    const laneBottoms: number[] = [];
+    for (const event of overlapping) {
+      let lane = laneBottoms.findIndex((bottom) => bottom <= event.top);
+      if (lane === -1) lane = laneBottoms.length;
+      laneBottoms[lane] = event.bottom;
+      event.lane = lane;
+    }
+    for (const event of overlapping) event.laneCount = laneBottoms.length;
+  }
+
+  return events;
+}
+
+function EventTime({ day, event }: { day: ScheduleDay; event: ScheduleEvent }) {
+  return (
+    <>
+      <time dateTime={dateTime(day, event.start)}>
+        {formatTime(event.start)}
+      </time>
+      {event.end && (
+        <>
+          {" – "}
+          <time dateTime={dateTime(day, event.end)}>
+            {formatTime(event.end)}
+          </time>
+        </>
+      )}
+    </>
+  );
+}
+
+function CalendarGrid({
+  day,
+  onSelect,
+}: {
+  day: ScheduleDay;
+  onSelect: (event: ScheduleEvent) => void;
+}) {
+  const startHour = day.id === "saturday" ? 9 : 0;
+  const hours =
+    day.id === "saturday"
+      ? Array.from({ length: 16 }, (_, index) => startHour + index)
+      : [0, 1, ...Array.from({ length: 11 }, (_, index) => index + 3)];
+  const events = positionEvents(day);
+  const daylightSavingEvent = day.events.find(
+    (event) => event.daylightSavingNote,
+  );
 
   return (
-    <section className="relative overflow-hidden bg-[#05070a] py-24 text-white">
-      <div className="pointer-events-none absolute inset-0 opacity-60">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(252,178,195,0.3),_transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(255,217,229,0.2),_transparent_65%)]" />
-      </div>
+    <div className="hidden overflow-hidden border border-white/10 bg-[#0c1016] lg:block">
+      <div className="relative" style={{ height: calendarHeight(day) }}>
+        {hours.map((hour, index) => {
+          const displayHour =
+            day.id === "sunday" && hour >= 3 ? hour - 1 : hour;
+          const top = (displayHour - startHour) * HOUR_HEIGHT;
+          return (
+            <div
+              key={hour}
+              className="absolute inset-x-0 flex items-start"
+              style={{ top }}
+            >
+              <span
+                className={`w-[76px] shrink-0 pr-4 text-right text-xs font-semibold text-white/45 ${index === 0 ? "translate-y-1" : "-translate-y-1/2"}`}
+              >
+                {formatTime(`${String(hour).padStart(2, "0")}:00`)}
+              </span>
+              <span className="min-w-0 flex-1 border-t border-white/[0.08]" />
+            </div>
+          );
+        })}
 
-      <div className="relative mx-auto max-w-6xl px-6">
-        <div className="grid gap-10">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.6em] text-white/60">Itinerary</p>
-            <h2 className="mt-4 text-4xl font-extrabold sm:text-5xl">
-              Weekend schedule
-            </h2>
-            <div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold uppercase tracking-[0.35em] text-white/40">
-              <span>{event.dates}</span>
-              <span>&#8226;</span>
-              <span>{event.venue}</span>
-              <span>&#8226;</span>
-              <span>{event.city}</span>
+        {daylightSavingEvent && (
+          <button
+            type="button"
+            onClick={() => onSelect(daylightSavingEvent)}
+            className="absolute left-[84px] right-5 z-20 flex items-center gap-2 border-l-2 border-[#fcb2c3] bg-[#261d2b] px-3 py-1 text-left text-xs font-semibold text-[#ffd0dd] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-[#fcb2c3]"
+            style={{ top: HOUR_HEIGHT * 1.4 }}
+          >
+            <Clock3 aria-hidden="true" className="h-4 w-4 shrink-0" />
+            <span>
+              2:00 AM → 3:00 AM · Daylight Savings Shift — clocks move forward 1
+              hour
+            </span>
+          </button>
+        )}
+
+        <div className="absolute bottom-0 left-[76px] right-5 top-0">
+          {events.map(({ event, top, height, lane, laneCount }) => {
+            const colors = categoryColors[event.category];
+            return (
+              <button
+                key={event.id}
+                type="button"
+                onClick={() => onSelect(event)}
+                className="absolute flex flex-col items-start justify-start overflow-hidden rounded-sm border-l-[3px] px-3 py-2 text-left hover:brightness-110 focus-visible:z-30 focus-visible:outline-2 focus-visible:outline-[#fcb2c3]"
+                style={{
+                  top,
+                  height,
+                  left: `calc(${(lane / laneCount) * 100}% + 4px)`,
+                  width: `calc(${100 / laneCount}% - 8px)`,
+                  borderLeftColor: colors.accent,
+                  backgroundColor: colors.surface,
+                }}
+              >
+                <p
+                  className="text-[11px] font-bold leading-tight"
+                  style={{ color: colors.accent }}
+                >
+                  <EventTime day={day} event={event} />
+                </p>
+                <span className="mt-1 block text-sm font-bold leading-tight text-white">
+                  {event.title}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MobileCalendar({
+  day,
+  onSelect,
+}: {
+  day: ScheduleDay;
+  onSelect: (event: ScheduleEvent) => void;
+}) {
+  return (
+    <ol className="border-t border-white/10 lg:hidden">
+      {day.events.map((event) => {
+        if (event.daylightSavingNote) {
+          return (
+            <li
+              key={event.id}
+              className="border-b border-white/10 py-4 text-[#ffd0dd]"
+            >
+              <button
+                type="button"
+                onClick={() => onSelect(event)}
+                className="w-full text-left focus-visible:outline-2 focus-visible:outline-[#fcb2c3]"
+              >
+                <span className="flex items-center gap-2 text-xs font-bold">
+                  <Clock3 aria-hidden="true" className="h-4 w-4" />
+                  2:00 AM → 3:00 AM
+                </span>
+                <span className="mt-1 block font-bold">{event.title}</span>
+                <span className="mt-1 block text-sm text-white/65">
+                  Clocks move forward 1 hour.
+                </span>
+              </button>
+            </li>
+          );
+        }
+
+        const colors = categoryColors[event.category];
+        return (
+          <li key={event.id} className="border-b border-white/10 py-4">
+            <button
+              type="button"
+              onClick={() => onSelect(event)}
+              className="flex w-full items-start gap-3 text-left focus-visible:outline-2 focus-visible:outline-[#fcb2c3]"
+            >
+              <span
+                className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full"
+                style={{ backgroundColor: colors.accent }}
+              />
+              <span>
+                <span
+                  className="block text-xs font-bold"
+                  style={{ color: colors.accent }}
+                >
+                  <EventTime day={day} event={event} />
+                </span>
+                <span className="mt-1 block text-base font-bold text-white">
+                  {event.title}
+                </span>
+              </span>
+            </button>
+          </li>
+        );
+      })}
+    </ol>
+  );
+}
+
+export default function Schedule() {
+  const [selectedDayId, setSelectedDayId] =
+    useState<ScheduleDay["id"]>("saturday");
+  const [selectedEvent, setSelectedEvent] = useState<ScheduleEvent | null>(
+    null,
+  );
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const selectedDay = scheduleDays.find((day) => day.id === selectedDayId)!;
+  const { event } = siteConfig;
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    if (selectedEvent && !dialog.open) dialog.showModal();
+    if (!selectedEvent && dialog.open) dialog.close();
+  }, [selectedEvent]);
+
+  return (
+    <main className="pb-24 text-white">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
+        <header className="border-b border-white/10 pb-5 pt-10 text-center sm:pt-12">
+          <h1 className="text-5xl font-extrabold sm:text-6xl">Schedule</h1>
+          <p className="mt-3 text-base text-white/65">{event.dates}</p>
+        </header>
+
+        <section aria-label="Event schedule" className="mt-2">
+          <div className="flex justify-center">
+            <div
+              role="group"
+              aria-label="Choose schedule day"
+              className="flex border-b border-white/15"
+            >
+              {scheduleDays.map((day) => (
+                <button
+                  key={day.id}
+                  type="button"
+                  aria-pressed={selectedDayId === day.id}
+                  aria-controls="schedule-calendar-panel"
+                  onClick={() => {
+                    setSelectedEvent(null);
+                    setSelectedDayId(day.id);
+                  }}
+                  className={`border-b-2 px-4 py-2 text-sm font-bold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fcb2c3] ${
+                    selectedDayId === day.id
+                      ? "border-[#fcb2c3] text-[#fcb2c3]"
+                      : "border-transparent text-white/60 hover:text-white"
+                  }`}
+                >
+                  {day.dateLabel}
+                </button>
+              ))}
             </div>
           </div>
-        </div>
 
-        <div className="mt-16 space-y-10">
-          {scheduleDays.map((day) => (
-            <article
-              key={day.day}
-              className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[#0b1016]/80 p-8 shadow-[0_30px_80px_rgba(0,0,0,0.45)] sm:p-10"
-            >
-              <div
-                className="pointer-events-none absolute inset-0 opacity-80 blur-3xl"
-                style={{
-                  background: `radial-gradient(circle, ${day.accent.glow}33, transparent 60%)`,
-                }}
-              />
-              <div className="relative">
-                <header className="flex flex-col gap-4 border-b border-white/5 pb-6 sm:flex-row sm:items-end sm:justify-between">
-                  <div>
-                    <p
-                      className="text-xs font-semibold uppercase tracking-[0.5em]"
-                      style={{ color: day.accent.base }}
-                    >
-                      {day.day} · {day.date}
-                    </p>
-                    <h3 className="mt-2 text-3xl font-bold sm:text-4xl">{day.tagline}</h3>
-                    <p className="mt-2 text-sm text-white/70">{day.description}</p>
-                  </div>
-                  <div
-                    className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.45em]"
-                    style={{ color: day.accent.base, borderColor: `${day.accent.base}55` }}
-                  >
-                    {day.duration}
-                  </div>
-                </header>
+          <ul
+            aria-label="Event categories"
+            className="my-6 flex flex-wrap justify-center gap-x-5 gap-y-2"
+          >
+            {scheduleCategories.map((category) => (
+              <li
+                key={category.id}
+                className="inline-flex items-center gap-2 text-xs font-bold text-white/65"
+              >
+                <span
+                  className="h-2 w-2 rounded-full"
+                  style={{
+                    backgroundColor: categoryColors[category.id].accent,
+                  }}
+                />
+                {category.label}
+              </li>
+            ))}
+          </ul>
 
-                <ol className="relative mt-10 space-y-8">
-                  <span className="pointer-events-none absolute left-6 top-0 h-full w-px bg-white/15" aria-hidden="true" />
-                  {day.events.map((event) => {
-                    const timeLabel = event.endTime ? `${event.time} — ${event.endTime}` : event.time;
-                    return (
-                      <li key={`${day.day}-${event.title}`} className="relative pl-16">
-                        <span
-                          className="absolute left-0 top-1 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white"
-                          style={{ borderColor: `${day.accent.base}55`, color: day.accent.base }}
-                        >
-                          <event.icon className="h-5 w-5" />
-                        </span>
-                        <div className="flex flex-col gap-3">
-                          <time className="text-sm font-semibold uppercase tracking-[0.3em] text-white/50">
-                            {timeLabel}
-                          </time>
-                          <div className="flex-1 rounded-2xl border border-white/5 bg-white/[0.02] p-4 sm:p-5">
-                            <h4 className="text-lg font-semibold">{event.title}</h4>
-                          </div>
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ol>
+          <div
+            id="schedule-calendar-panel"
+            className="border-t border-white/10 pt-6"
+          >
+            <div className="mb-5 flex items-center justify-between gap-4">
+              <div>
+                <p className="text-sm font-semibold text-[#fcb2c3]">
+                  {selectedDay.dateLabel}
+                </p>
+                <h3 aria-live="polite" className="text-2xl font-extrabold">
+                  {selectedDay.title}
+                </h3>
               </div>
-            </article>
-          ))}
-        </div>
+              <span className="hidden text-xs font-semibold text-white/55 sm:inline-flex">
+                {selectedDay.duration}
+              </span>
+            </div>
+            <CalendarGrid day={selectedDay} onSelect={setSelectedEvent} />
+            <MobileCalendar day={selectedDay} onSelect={setSelectedEvent} />
+          </div>
+        </section>
       </div>
-    </section>
+
+      <dialog
+        ref={dialogRef}
+        aria-labelledby="schedule-event-title"
+        onClose={() => setSelectedEvent(null)}
+        className="fixed inset-0 m-auto w-[calc(100%-2rem)] max-w-md border border-white/15 bg-[#171c22] p-6 text-white shadow-2xl backdrop:bg-black/70 sm:p-8"
+      >
+        {selectedEvent && (
+          <>
+            <div className="flex items-start justify-between gap-4">
+              <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-white/65">
+                <span
+                  className="h-2 w-2 rounded-full"
+                  style={{
+                    backgroundColor:
+                      categoryColors[selectedEvent.category].accent,
+                  }}
+                />
+                {
+                  scheduleCategories.find(
+                    (category) => category.id === selectedEvent.category,
+                  )?.label
+                }
+              </p>
+              <button
+                type="button"
+                aria-label="Close event details"
+                onClick={() => setSelectedEvent(null)}
+                className="-mr-2 -mt-2 p-2 text-white/65 hover:text-white focus-visible:outline-2 focus-visible:outline-[#fcb2c3]"
+              >
+                <X aria-hidden="true" className="h-5 w-5" />
+              </button>
+            </div>
+            <h2
+              id="schedule-event-title"
+              className="mt-4 text-3xl font-extrabold"
+            >
+              {selectedEvent.title}
+            </h2>
+            <dl className="mt-6 space-y-4 border-t border-white/10 pt-5 text-sm">
+              <div>
+                <dt className="font-semibold text-white/50">Date</dt>
+                <dd className="mt-1 font-semibold">
+                  {selectedDay.dateLabel}, {siteConfig.year}
+                </dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-white/50">Time</dt>
+                <dd className="mt-1 font-semibold">
+                  {selectedEvent.daylightSavingNote ? (
+                    "2:00 AM → 3:00 AM"
+                  ) : (
+                    <EventTime day={selectedDay} event={selectedEvent} />
+                  )}
+                </dd>
+              </div>
+            </dl>
+            {selectedEvent.daylightSavingNote && (
+              <p className="mt-5 text-sm text-white/70">
+                Clocks move forward one hour; the 2:00–3:00 AM hour is skipped.
+              </p>
+            )}
+          </>
+        )}
+      </dialog>
+    </main>
   );
 }

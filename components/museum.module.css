@@ -1,0 +1,384 @@
+.museum {
+  --museum-pink: var(--color-primary, #fcb2c3);
+  max-width: 1440px;
+  margin: auto;
+  padding: 0 24px 48px;
+  color: #fff;
+}
+
+.hero {
+  max-width: 1104px;
+  margin: 0 auto;
+  padding: 40px 0 20px;
+  border-bottom: 1px solid #ffffff1a;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 60px;
+  line-height: 1.1;
+}
+.hero p {
+  margin-top: 12px;
+  font-size: 16px;
+  color: #ffffffa6;
+}
+
+.years {
+  position: sticky;
+  top: 100px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  border-left: 1px solid #ffffff1a;
+}
+
+.years a {
+  margin-left: -1px;
+  padding: 12px 20px;
+  border-left: 2px solid transparent;
+  color: #ffffff99;
+  font-size: 30px;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.years a[aria-current] {
+  color: var(--event-accent);
+  border-left-color: var(--event-accent);
+}
+.years a:hover {
+  color: #fff;
+}
+.collection {
+  display: grid;
+  grid-template-columns: 128px minmax(0, 1fr) 128px;
+  gap: 24px;
+  padding-top: 24px;
+  scroll-margin-top: 100px;
+}
+.gallery {
+  min-width: 0;
+}
+.season {
+  margin-bottom: 36px;
+  scroll-margin-top: 100px;
+}
+.season:last-child {
+  margin-bottom: 0;
+}
+.season + .season {
+  padding-top: 24px;
+  border-top: 1px solid color-mix(in srgb, var(--event-accent) 20%, transparent);
+}
+.seasonHeader {
+  padding-bottom: 20px;
+  text-align: center;
+}
+.seasonHeader h2 {
+  font-size: 30px;
+  line-height: 1.2;
+}
+.seasonHeader p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--event-accent);
+}
+.dot {
+  padding: 0 6px;
+  color: #ffffff73;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid #ffffff1a;
+}
+
+.cardButton {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  cursor: pointer;
+}
+
+.photo {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #10151a;
+}
+
+.teamPhoto {
+  object-fit: cover;
+  object-position: center 35%;
+}
+.photoPlaceholder {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--event-accent);
+}
+.photoPlaceholder span {
+  font-size: 13px;
+  color: #ffffff99;
+}
+.cardContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding-top: 14px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 7px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--event-accent) 6%, transparent);
+  color: var(--event-accent);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.badge svg {
+  flex-shrink: 0;
+}
+.projectName {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 10px;
+  overflow-wrap: anywhere;
+}
+.cardButton:hover .projectName {
+  color: var(--event-accent);
+}
+.team {
+  display: block;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ffffffa6;
+  margin: 8px 0 12px;
+}
+.cardFooter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding: 4px 0;
+  color: #ffffff99;
+  font-size: 13px;
+}
+.cardButton:hover .cardFooter {
+  color: var(--event-accent);
+}
+
+.overall {
+  border-bottom-color: transparent;
+}
+.overall::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 1px solid var(--event-accent);
+  border-radius: 6px;
+  animation: winner-outline 5s ease-in-out infinite;
+}
+
+.dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  padding: 0;
+  width: min(640px, calc(100% - 32px));
+  max-height: calc(100dvh - 48px);
+  border-radius: 6px;
+  border: 1px solid #ffffff26;
+  background: #171c22;
+  color: white;
+  overscroll-behavior: contain;
+}
+
+.dialog::backdrop {
+  background: #000b;
+}
+.dialogContent {
+  position: relative;
+}
+.close {
+  position: absolute;
+  z-index: 1;
+  top: 12px;
+  right: 12px;
+  padding: 9px;
+  border-radius: 4px;
+  background: #0d1116;
+  color: white;
+  cursor: pointer;
+}
+.close:hover {
+  background: #30363e;
+}
+.dialogPhoto {
+  position: relative;
+  aspect-ratio: 16 / 9;
+}
+.dialogBody {
+  padding: 24px;
+}
+.eyebrow {
+  font-size: 13px;
+  color: #ffffff99;
+}
+.dialogBody h2 {
+  font-size: 34px;
+  line-height: 1.2;
+  margin: 8px 0 12px;
+  overflow-wrap: anywhere;
+}
+.fullAward {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #ffffffa6;
+}
+.dialogBody h3 {
+  font-size: 20px;
+  margin-top: 20px;
+}
+.members {
+  margin-top: 8px;
+  list-style: none;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffffbf;
+}
+.projectDetails {
+  margin-top: 20px;
+  border-top: 1px solid #ffffff1a;
+}
+.projectDetails p {
+  color: #ffffffbf;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+.museum a:focus-visible,
+.museum button:focus-visible {
+  outline: 2px solid var(--event-accent, var(--museum-pink));
+  outline-offset: 4px;
+}
+
+@keyframes winner-outline {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1151px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1023px) {
+  .collection {
+    grid-template-columns: 96px minmax(0, 1fr) 96px;
+    gap: 16px;
+  }
+  .years a {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding-top: 24px;
+  }
+  .hero h1 {
+    font-size: 48px;
+  }
+  .years {
+    top: 32px;
+    flex-direction: row;
+    justify-content: center;
+    padding: 8px 0;
+    background: #0d1116;
+    border-left: 0;
+    border-bottom: 1px solid #ffffff1a;
+  }
+  .years a {
+    margin-left: 0;
+    padding: 8px 24px;
+    font-size: 18px;
+    border-left: 0;
+    border-bottom: 2px solid transparent;
+  }
+  .years a[aria-current] {
+    border-bottom-color: var(--event-accent);
+  }
+  .collection {
+    display: block;
+    padding-top: 0;
+    scroll-margin-top: 108px;
+  }
+  .gallery {
+    padding-top: 20px;
+  }
+  .season {
+    scroll-margin-top: 108px;
+    margin-bottom: 28px;
+  }
+  .seasonHeader h2 {
+    font-size: 28px;
+  }
+  .cards {
+    gap: 16px;
+  }
+  .dialogBody {
+    padding: 20px;
+  }
+  .dialogBody h2 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 639px) {
+  .cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overall::before {
+    animation: none;
+  }
+  .years a {
+    transition: none;
+  }
+}

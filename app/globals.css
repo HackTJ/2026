@@ -96,7 +96,8 @@
 html,
 body {
   max-width: 100%;
-  overflow-x: hidden;
+  /* Clip horizontal overflow without creating a scroll container for sticky elements. */
+  overflow-x: clip;
   background-color: #1F2125;
   font-family: 'Dosis', sans-serif;
   scroll-behavior: smooth;
@@ -166,4 +167,10 @@ body {
   background: linear-gradient(90deg, #05070a, #0f141a);
   border-radius: 999px;
   border: 2px solid #1a1f26;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html, body {
+    scroll-behavior: auto;
+  }
 }
