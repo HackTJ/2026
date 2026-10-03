@@ -5,6 +5,7 @@ import { ArrowUpRight, Trophy, X } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 import { pastWinners, type Winner, type WinnersYear } from "@/lib/past-winners";
+import { withBasePath } from "@/lib/paths";
 import styles from "./museum.module.css";
 
 type Exhibit = { winner: Winner; season: WinnersYear };
@@ -130,13 +131,12 @@ export default function Museum() {
                         <span className={styles.photo}>
                           {winner.picture ? (
                             <Image
-                              src={winner.picture}
+                              src={withBasePath(winner.picture)}
                               alt={`${winner.name} winning team`}
                               fill
                               priority={
                                 season.year === pastWinners[0].year && index < 3
                               }
-                              sizes="(min-width: 1440px) 330px, (min-width: 1152px) 25vw, (min-width: 768px) 35vw, (min-width: 640px) 45vw, 90vw"
                               className={styles.teamPhoto}
                             />
                           ) : (
@@ -201,10 +201,9 @@ export default function Museum() {
             {selected.winner.picture && (
               <div className={styles.dialogPhoto}>
                 <Image
-                  src={selected.winner.picture}
+                  src={withBasePath(selected.winner.picture)}
                   alt={`${selected.winner.name} winning team`}
                   fill
-                  sizes="(min-width: 768px) 640px, 90vw"
                   className={styles.teamPhoto}
                 />
               </div>

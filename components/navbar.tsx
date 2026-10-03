@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
+import { withBasePath } from "@/lib/paths";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -49,7 +50,7 @@ export default function Navbar() {
         <div className="hidden items-center gap-6 text-sm font-semibold uppercase tracking-[0.3em] md:flex">
           <Link href="/">
             <Image
-              src="/pink_white.png"
+              src={withBasePath("/pink_white-small.webp")}
               alt="Logo"
               width={70}
               height={70}

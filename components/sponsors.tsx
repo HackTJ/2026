@@ -27,8 +27,8 @@ const sponsorTiers: SponsorTier[] = [
     slots: 2,
     blurb: "",
     logos: [
-      { name: "TJPF", src: "/logos/partner/tjpartnership.png", className: "max-h-35" },
-      { name: "Cvent", src: "/logos/partner/cvent.png" },
+      { name: "TJPF", src: "/logos/partner/tjpartnership.webp", className: "max-h-35" },
+      { name: "Cvent", src: "/logos/partner/cvent.webp" },
     ],
   },
   {
@@ -36,10 +36,10 @@ const sponsorTiers: SponsorTier[] = [
     slots: 3,
     blurb: "",
     logos: [
-      { name: "Roam", src: "/logos/gold/roam.png" },
-      { name: "M.C. Dean", src: "/logos/gold/mcdean.png" },
-      { name:"Coder", src:"/logos/gold/coder.png" },
-      { name: "Robinhood", src: "/logos/gold/robinhood.png" },
+      { name: "Roam", src: "/logos/gold/roam.webp" },
+      { name: "M.C. Dean", src: "/logos/gold/mcdean.webp" },
+      { name:"Coder", src:"/logos/gold/coder.webp" },
+      { name: "Robinhood", src: "/logos/gold/robinhood.webp" },
     ],
   },
   {
@@ -47,14 +47,14 @@ const sponsorTiers: SponsorTier[] = [
     slots: 9,
     blurb: "",
     logos: [{ name: "Terac", src: "/logos/silver/terac.svg" },
-      { name: "Hudson River Trading", src: "/logos/silver/hrt.png" },
-      { name: "Appian", src: "/logos/silver/appian.png" },
-      { name: "Susa", src: "/logos/silver/susa.png" },
-      { name: "Clasiq", src: "/logos/silver/clasiq.png", className: "max-h-20"},
+      { name: "Hudson River Trading", src: "/logos/silver/hrt.webp" },
+      { name: "Appian", src: "/logos/silver/appian.webp" },
+      { name: "Susa", src: "/logos/silver/susa.webp" },
+      { name: "Clasiq", src: "/logos/silver/clasiq.webp", className: "max-h-20"},
       { name: "Vercel", src: "/logos/silver/vercel.webp" },
-      { name: "Yubico", src: "logos/silver/yubico.png"},
-      { name: "VDOE", src: "logos/silver/vdoe.png"},
-      { name: "Jane Street", src: "logos/silver/janestreet.png"},
+      { name: "Yubico", src: "logos/silver/yubico.webp"},
+      { name: "VDOE", src: "logos/silver/vdoe.webp"},
+      { name: "Jane Street", src: "logos/silver/janestreet.webp"},
     ],
 
   },
@@ -63,20 +63,20 @@ const sponsorTiers: SponsorTier[] = [
     slots: 5,
     blurb: "",
     logos: [
-      { name: "Arcfield", src: "/logos/bronze/arcfield.png" },
-      { name: "TEOCO", src: "/logos/bronze/teoco.png" },
-      { name: "CCI", src: "/logos/bronze/cci.png" },
+      { name: "Arcfield", src: "/logos/bronze/arcfield.webp" },
+      { name: "TEOCO", src: "/logos/bronze/teoco.webp" },
+      { name: "CCI", src: "/logos/bronze/cci.webp" },
       { name: "Phasecraft", src:"/logos/bronze/phasecraft.webp", className: "max-h-40"},
-      { name: "Emergence", src:"/logos/bronze/emergence.jpeg" },
-      { name: "alarm.com", src:"/logos/bronze/alarm.png" },
+      { name: "Emergence", src:"/logos/bronze/emergence.webp" },
+      { name: "alarm.com", src:"/logos/bronze/alarm.webp" },
     ],
   },
   {
     name: "Prize",
     slots: 3,
     blurb: "",
-    logos: [{ name: "Vishnu Murthy Foundation", src: "/logos/bronze/vishnu-murthy-foundation.png", className: "max-h-24" },
-      { name: "Yale", src:"/logos/bronze/yale.png", className: "max-h-20"},
+    logos: [{ name: "Vishnu Murthy Foundation", src: "/logos/bronze/vishnu-murthy-foundation.webp", className: "max-h-24" },
+      { name: "Yale", src:"/logos/bronze/yale.webp", className: "max-h-20"},
     ],
   },
 ];
@@ -182,7 +182,6 @@ function ParkingSpot({ logo }: { logo?: SponsorLogo }) {
             width={320}
             height={120}
             className={`max-h-14 w-full object-contain ${logo.className ?? ""}`.trim()}
-            sizes="(min-width: 1024px) 300px, (min-width: 768px) 45vw, 90vw"
           />
         ) : (
           "Reserved"

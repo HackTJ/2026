@@ -1,6 +1,7 @@
 import Image from "next/image";
+import { withBasePath } from "@/lib/paths";
 
-const photos = ["1.JPG", "2.JPG", "3.JPG", "4.JPG", "5.JPG", "6.JPG", "7.JPG", "8.JPG"];
+const photos = ["1.webp", "2.webp", "3.webp", "4.webp", "5.webp", "6.webp", "7.webp", "8.webp"];
 const ribbon = [...photos, ...photos];
 
 export default function PhotoStrip() {
@@ -17,7 +18,7 @@ export default function PhotoStrip() {
             <div className="flex h-32 w-[180%] animate-road-scroll items-center gap-6 px-8" style={{ animationDuration: "25s" }}>
               {ribbon.map((photo, index) => (
                 <div key={`${photo}-${index}`} className="relative h-32 w-60 flex-shrink-0 overflow-hidden rounded-2xl border-4 border-white/70 bg-white/85 shadow-[0_14px_30px_rgba(0,0,0,0.35)]">
-                  <Image src={`/prev/${photo}`} alt={`HackTJ ${photo}`} fill sizes="240px" className="object-cover" />
+                  <Image src={withBasePath(`/prev/${photo}`)} alt={`HackTJ ${photo}`} fill className="object-cover" />
                 </div>
               ))}
             </div>

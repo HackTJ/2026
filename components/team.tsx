@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { withBasePath } from "@/lib/paths";
 
 type TeamMember = {
   name: string;
@@ -10,73 +11,73 @@ const team: TeamMember[] = [
   {
     name: "Aanya Gupta",
     bio: "Aanya is the Director of HackTJ this year, and this is her third year on the team after competing in HackTJ 10.0! She enjoys finding ways to bridge gaps between computer science and biology, solving problems that impact social good. In her free time, she enjoys baking for her friends, listening to music, and rock climbing.",
-    image: "/team/aanya.jpg",
+    image: "/team/aanya.webp",
   },
   {
     name: "Hashmita Nittala",
     bio: "Hashmita is a senior at TJHSST, and she is excited for her second year on the team. She enjoys using her computer science knowledge to solve competitive programming problems and create apps that can help tackle real-world issues. Outside of HackTJ, she is involved in TSA and the Computer Team. In her free time, she enjoys playing basketball, baking, watching TV, and listening to music.",
-    image: "/team/hashmita.jpg",
+    image: "/team/hashmita.webp",
   },
   {
     name: "Shaurya Bisht",
     bio: "Shaurya is a junior at TJHSST, and this is his second year on the team after competing in 11.0. He enjoys researching & playing with new technology and diving deep into peculiar engineering problems. In his free time, he enjoys competing at hackathons, playing cricket with friends, spending time with family, and the gym.",
-    image: "/team/shaurya.jpg",
+    image: "/team/shaurya.webp",
   },
   {
     name: "Sanya Bhalla",
     bio: "Sanya is a junior at TJHSST, and this is her second year on the team after competing in Hack TJ 11.0! She is fascinated by data science and economics and their applications in artificial intelligence. In her free time, she enjoys traveling, sleeping, and flying planes.",
-    image: "/team/sanya.jpg",
+    image: "/team/sanya.webp",
   },
   {
     name: "Aanya Shekhar",
     bio: "Aanya is a senior at TJHSST and she is excited to be on the team this year! She loves to plan events. In her free time, she enjoys frolicking in the fields and trying new hobbies.",
-    image: "/team/aanya_s.jpg",
+    image: "/team/aanya_s.webp",
   },
   {
     name: "Ria Goel",
     bio: "Ria is a senior at TJHSST, and she is excited to be on the team after competing in HackTJ 12.0! She is fascinated by the intersection of finance and data science. In her free time, she enjoys dancing and traveling.",
-    image: "/team/ria.jpg",
+    image: "/team/ria.webp",
   },
   {
     name: "Jacob Percy",
     bio: "Jacob is a junior at TJHSST. After competing in 11.0 and 12.0, he’s joining the HackTJ tech and judging teams. He enjoys hiking, baseball, and ML. ",
-    image: "/team/jacob.jpg",
+    image: "/team/jacob.webp",
   },
   {
     name: "Shreyas Jain",
     bio: "Shreyas is a junior at TJHSST, and this is his first year on the team after competing in 11.0. This year, he's working on tech and judging for HackTJ 13.0, building the event website and judging platforms. Outside HackTJ, he enjoys competing in robotics and rocketry, and is a Sysadmin for the tjCSL. In his free time, he loves sleeping and hanging out with friends.",
-    image: "/team/shreyas.jpg",
+    image: "/team/shreyas.webp",
   },
   {
     name: "Sidh Jaddu",
     bio: "Sidh is a junior at TJHSST, and this is his second year on the team after competing in HackTJ 11.0. He is interested in machine learning, specifically generative artificial intelligence, and its various applications in mitigating critical real-world problems. Aside from that, he enjoys hiking and exploring the outdoors.",
-    image: "/team/sidh.jpg",
+    image: "/team/sidh.webp",
   },
   {
     name: "Rushil Kukreja",
     bio: "",
-    image: "/team/rushil.jpg",
+    image: "/team/rushil.webp",
   },
   {
     name: "Diya Kotha",
     bio: "Diya is a sophomore at TJHSST, and this is her first year on the team! She enjoys exploring neuroscience, building hardware projects, and conducting AI efficiency research. In her leisure time, she enjoys weightlifting, graphic design/video production, and philosophy deep-dives.",
-    image: "/team/diya.jpg",
+    image: "/team/diya.webp",
   },
   {
     name: "Nihal Gorthi",
     bio: "Nihal is a sophomore at TJHSST, and this is his first year on the team after competing in HackTJ 12.0! He enjoys exploring machine learning and AI, experimenting with bold new ideas, and creating projects that break new ground. In his free time, he enjoys speed-solving Rubik’s cubes, exploring cutting-edge technology, and taking on new challenges that spark his curiosity.",
-    image: "/team/nihal.jpg",
+    image: "/team/nihal.webp",
   },
   {
     name: "Mr. Hannum",
     bio: "",
-    image: "/team/hannum.jpg",
+    image: "/team/hannum.webp",
   }
   ,
   {
     name: "Mr. Kosek",
     bio: "",
-    image: "/team/kosek.jpg",
+    image: "/team/kosek.webp",
   }
 ];
 
@@ -87,7 +88,7 @@ export default function Team() {
 
       <div className="relative w-full h-[45vh] md:h-[55vh] lg:h-[65vh] overflow-hidden">
         <Image
-          src="/team/full-team.jpg"
+          src={withBasePath("/team/full-team.webp")}
           alt="HackTJ Team Photo"
           fill
           priority
@@ -115,7 +116,7 @@ export default function Team() {
             >
               <div className="w-full h-56 relative mb-4 rounded-xl overflow-hidden">
                 <Image
-                  src={member.image}
+                  src={withBasePath(member.image)}
                   alt={member.name}
                   fill
                   className="object-cover"

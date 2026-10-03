@@ -53,7 +53,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "",
         name: "SafeWalkr",
-        picture: "/pastwinners/2026/overall2026winner.jpg",
+        picture: "/pastwinners/2026/overall2026winner.webp",
         winners: "Isaac Leetyn, Ashwath Reddy Muppa, Daniil Prokofev",
         icon: Award,
       },
@@ -62,7 +62,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "",
         name: "vigil",
-        picture: "/pastwinners/2026/aiml2026winner.jpg",
+        picture: "/pastwinners/2026/aiml2026winner.webp",
         winners: "Salban Nithilaselvan, Aneesh Peri, Ritwik Sinha, Aarya Srikanth",
         icon: Brain,
       },
@@ -71,7 +71,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "",
         name: "Shopper Stopper",
-        picture: "/pastwinners/2026/web2026winner.jpg",
+        picture: "/pastwinners/2026/web2026winner.webp",
         winners: "Shritha Adapala, Saadhya Munigela",
         icon: Globe,
       },
@@ -80,7 +80,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "",
         name: "Fern.ai",
-        picture: "/pastwinners/2026/mobile2026winner.jpg",
+        picture: "/pastwinners/2026/mobile2026winner.webp",
         winners: "Ishaan Gulati, Anay Shekhar, Varun Surianarayanan",
         icon: Smartphone,
       },
@@ -89,7 +89,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "",
         name: "AarushSidMogs",
-        picture: "/pastwinners/2026/beginner2026winner.jpg",
+        picture: "/pastwinners/2026/beginner2026winner.webp",
         winners: "Aarush Gutha, Sidharth Mantri",
         icon: Sparkles,
       },
@@ -98,7 +98,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "",
         name: "VoiceRecovery",
-        picture: "/pastwinners/2026/biomed2026winner.jpg",
+        picture: "/pastwinners/2026/biomed2026winner.webp",
         winners: "Hanseon Lee, Jake Kim, Immanuel Yim",
         icon: HeartPulse,
       },
@@ -107,7 +107,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "",
         name: "SubFlow",
-        picture: "/pastwinners/2026/sustainability2026winner.jpg",
+        picture: "/pastwinners/2026/sustainability2026winner.webp",
         winners: "Josh Fields, Justin Cafaro, Hayden Neiberline, Kylie Liu",
         icon: Leaf,
       },
@@ -116,7 +116,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "",
         name: "MyHouse",
-        picture: "/pastwinners/2026/finance2026winner.jpg",
+        picture: "/pastwinners/2026/finance2026winner.webp",
         winners: "Aditya Khandelwal, Armaan Ahmed, Akshaya Lohia",
         icon: Wallet,
       },
@@ -125,7 +125,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "",
         name: "AgentGuard",
-        picture: "/pastwinners/2026/cyber2026winner.jpg",
+        picture: "/pastwinners/2026/cyber2026winner.webp",
         winners: "Rohan Honganoor, Jayden Yang, Joshua Zhou, Andrew Chen",
         icon: ShieldCheck,
       },
@@ -134,7 +134,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "",
         name: "Qore",
-        picture: "/pastwinners/2026/quantum2026winner.jpg",
+        picture: "/pastwinners/2026/quantum2026winner.webp",
         winners: "Sarah Trainer, Haasini Govindu, Anna Park, Aditi Saravanan",
         icon: Atom,
       },
@@ -143,7 +143,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "",
         name: "OmniSign",
-        picture: "/pastwinners/2026/lifestyle2026winner.jpg",
+        picture: "/pastwinners/2026/lifestyle2026winner.webp",
         winners: "Fiona MacGarvey, Medha Pappula",
         icon: Sun,
       },
@@ -152,7 +152,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "",
         name: "GridWatch",
-        picture: "/pastwinners/2026/terac2026winner.jpg",
+        picture: "/pastwinners/2026/terac2026winner.webp",
         winners: "Eshan Gillani, August Bhatt, Mohan East, Zakhar Liskovyi",
         icon: Globe,
       }
@@ -173,7 +173,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "AlgoRhythm gives beginner songwriters an AI-powered studio where melodies become complete arrangements in seconds.",
         name: "AlgoRhythm",
-        picture: "/pastwinners/2025/overall2025winner.jpg",
+        picture: "/pastwinners/2025/overall2025winner.webp",
         winners: "Abraham Agbota, Ryan Ghimire, Justin Ma, Arjun Babla",
         icon: Award,
       },
@@ -182,7 +182,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "SearchParty lets communities coordinate missing-person searches with live location sharing, task assignment, and heatmaps.",
         name: "SearchParty",
-        picture: "/pastwinners/2025/mobile2025winner.jpg",
+        picture: "/pastwinners/2025/mobile2025winner.webp",
         winners: "Aryan Gadre, Kanishk Sivanandam, Chetan Maviti, Adarsh Bharadwaj",
         icon: Smartphone,
       },
@@ -191,7 +191,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "SafeScape gives civilians and first responders a shared AR-enabled map for navigation, reporting, and rapid triage.",
         name: "SafeScape",
-        picture: "/pastwinners/2025/aiml2025winner.jpg",
+        picture: "/pastwinners/2025/aiml2025winner.webp",
         winners: "Ansh Malhotra, Nivaan Kaushal, Pratham Singh, Armaan Ahmed",
         icon: Brain,
       },
@@ -200,7 +200,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "QuantumFold accelerates protein modeling by blending quantum computing with AlphaFold's accuracy.",
         name: "QuantumFold",
-        picture: "/pastwinners/2025/web2025winner.jpg",
+        picture: "/pastwinners/2025/web2025winner.webp",
         winners: "Deven Hagen, Justin Lee, Alan Zhu",
         icon: Globe,
       },
@@ -209,7 +209,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "Quantum Enhanced MRI Diagnostics highlights regions of interest in scans using edge detection and amplitude encoding.",
         name: "Quantum Enhanced MRI Diagnostics",
-        picture: "/pastwinners/2025/quantum2025winner.jpg",
+        picture: "/pastwinners/2025/quantum2025winner.webp",
         winners: "Kashi Kamat, Sarvani Vemuri, Surbhi Singla",
         icon: Atom,
       },
@@ -218,7 +218,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "Circa turns bartering into a seamless on-chain experience so communities can lend, rent, and swap safely.",
         name: "Circa",
-        picture: "/pastwinners/2025/finance2025winner.jpg",
+        picture: "/pastwinners/2025/finance2025winner.webp",
         winners: "Maneesh Vaddi, Agastya Sondhi, Arjun Chitla, Adhiraj Chhoda",
         icon: Wallet,
       },
@@ -227,7 +227,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "PinPoint slices long-form video into just the clips you care about with semantic search and time-stamped recall.",
         name: "PinPoint",
-        picture: "/pastwinners/2025/lifestyle2025winner.jpg",
+        picture: "/pastwinners/2025/lifestyle2025winner.webp",
         winners: "Soham Jain, Shaurya Jain, Anmol Karan, Jason Hao",
         icon: Sun,
       },
@@ -236,7 +236,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "DeepShield is a browser extension that checks every frame for deepfakes directly on the page you're viewing.",
         name: "DeepShield",
-        picture: "/pastwinners/2025/cyber2025winner.JPG",
+        picture: "/pastwinners/2025/cyber2025winner.webp",
         winners: "Rohan Honganoor, Amogh Katiki, Andrew Chen, Jayden Yang",
         icon: ShieldCheck,
       },
@@ -245,7 +245,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "RDD listens for tuberculosis markers and spots Parkinson's tremors to bring early diagnosis to any clinic.",
         name: "RDD: Respiratory Disease Detection",
-        picture: "/pastwinners/2025/biomed2025winner.jpg",
+        picture: "/pastwinners/2025/biomed2025winner.webp",
         winners: "Luv, Anush, Sanjeev, Saatvik",
         icon: HeartPulse,
       },
@@ -254,7 +254,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "Retro Rower gamifies trash clean-up with a rowing simulator where players draft the most sustainable crew.",
         name: "Retro Rower",
-        picture: "/pastwinners/2025/env2025winner.jpg",
+        picture: "/pastwinners/2025/env2025winner.webp",
         winners: "Darwin Goldstein, Daniil Prokofev, Christoph Knaeble",
         icon: Leaf,
       },
@@ -263,7 +263,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "AP Romance personifies AP classes to make course exploration playful and far less intimidating.",
         name: "AP Romance",
-        picture: "/pastwinners/2025/beginner2025winner.jpg",
+        picture: "/pastwinners/2025/beginner2025winner.webp",
         winners: "Nathalie Hatchuel, Sohana Bahl, Fay Amirullah",
         icon: Sparkles,
       },
@@ -272,7 +272,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "CyberGuard searches the public web for leaked credentials, validates them on-chain, and advises next steps.",
         name: "CyberGuard",
-        picture: "/pastwinners/2025/roam2025winner.JPG",
+        picture: "/pastwinners/2025/roam2025winner.webp",
         winners: "Shiv Davay, Aahan Sachdeva, Parthiv Maddipatla, Svaran Medavarapu",
         icon: Bot,
       },
@@ -281,7 +281,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "Jot It transforms handwritten prescriptions so pharmacists never have to guess at dosage again.",
         name: "Jot It",
-        picture: "/pastwinners/2025/social2025winner.jpg",
+        picture: "/pastwinners/2025/social2025winner.webp",
         winners: "Sophia Huang, Jacob Dipasupil, Avery Li, Ipek Sayar",
         icon: Handshake,
       },
@@ -302,7 +302,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "WatchDog detects falls, fires, and sudden medical events, alerting loved ones instantly.",
         name: "WatchDog",
-        picture: "/pastwinners/2024/BestOverallHack.jpg",
+        picture: "/pastwinners/2024/BestOverallHack.webp",
         winners: "Shaurya Jain, Arjun Babla, Anmol Karan, Ajith Sivakumar",
         icon: Award,
       },
@@ -311,7 +311,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "Nutrium reads receipts or photos and turns them into recipes along with calorie guidance.",
         name: "Nutrium",
-        picture: "/pastwinners/2024/BestAIMLHack.jpg",
+        picture: "/pastwinners/2024/BestAIMLHack.webp",
         winners: "Michael Rodriguez, Ryan Ghimire, Syed Raza Haider",
         icon: Brain,
       },
@@ -320,7 +320,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "WeCode blends challenges, competitions, and learning resources into one collaborative dev hub.",
         name: "WeCode",
-        picture: "/pastwinners/2024/BestWebHack.jpg",
+        picture: "/pastwinners/2024/BestWebHack.webp",
         winners: "Drew Zauel, Nikhit Rachapudi, Max Weinstein, Eshwar Moorthy",
         icon: Globe,
       },
@@ -329,7 +329,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "Credit Score Simulator forecasts credit trajectories and offers hyper-personalized tips.",
         name: "Credit Score Simulator",
-        picture: "/pastwinners/2024/BestFinanceHack.jpg",
+        picture: "/pastwinners/2024/BestFinanceHack.webp",
         winners: "Anika Saraf, Sahil Kapadia, Angelina Richter, Alina Chen",
         icon: Wallet,
       },
@@ -338,7 +338,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "Bites forecasts credit health on the go and explains how to improve it.",
         name: "Bites",
-        picture: "/pastwinners/2024/BestMobileHack.jpg",
+        picture: "/pastwinners/2024/BestMobileHack.webp",
         winners: "Arvind Ragunathan, Brij Baghat, Rohan Kalahasty",
         icon: Smartphone,
       },
@@ -347,7 +347,7 @@ export const pastWinners: WinnersYear[] = [
         description:
           "Your Carbon Foot uses NLP to estimate emissions and suggest greener routines.",
         name: "Your Carbon Foot",
-        picture: "/pastwinners/2024/BestEnvironmentalScienceHack.jpg",
+        picture: "/pastwinners/2024/BestEnvironmentalScienceHack.webp",
         winners: "Maneesh Vaddi, Kevin Su, Rishab Nanduri",
         icon: Leaf,
       },

@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { siteConfig, type RegistrationStatus } from "@/lib/site-config";
+import { withBasePath } from "@/lib/paths";
 
 const registrationCopy: Record<
   RegistrationStatus,
@@ -72,7 +73,7 @@ export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden bg-[#6B9AC4] text-white">
       <Image
-        src="/dome.png"
+        src={withBasePath("/dome.png")}
         alt="HackTJ hero illustration"
         fill
         priority
