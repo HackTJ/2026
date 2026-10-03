@@ -51,7 +51,7 @@ export const pastWinners: WinnersYear[] = [
       {
         title: "Best Overall Hack",
         description:
-          "",
+          "SafeWalkr lets walkers weigh sidewalks, lighting, and traffic to find a route that fits their comfort level.",
         name: "SafeWalkr",
         picture: "/pastwinners/2026/overall2026winner.webp",
         winners: "Isaac Leetyn, Ashwath Reddy Muppa, Daniil Prokofev",
@@ -60,7 +60,7 @@ export const pastWinners: WinnersYear[] = [
       {
         title: "Best AI/ML Hack",
         description:
-          "",
+          "Vigil brings voice AI to emergency calls, connecting live transcription and analysis with a dashboard for human dispatchers.",
         name: "vigil",
         picture: "/pastwinners/2026/aiml2026winner.webp",
         winners: "Salban Nithilaselvan, Aneesh Peri, Ritwik Sinha, Aarya Srikanth",
@@ -69,7 +69,7 @@ export const pastWinners: WinnersYear[] = [
       {
         title: "Best Web Hack",
         description:
-          "",
+          "Shopper Stopper puts a pause before checkout, using timely reminders and a cooldown to help shoppers rethink impulse buys.",
         name: "Shopper Stopper",
         picture: "/pastwinners/2026/web2026winner.webp",
         winners: "Shritha Adapala, Saadhya Munigela",
@@ -78,7 +78,7 @@ export const pastWinners: WinnersYear[] = [
       {
         title: "Best Mobile Hack",
         description:
-          "",
+          "Fern.ai scans medical bills for possible errors and drafts dispute letters, giving patients a starting point to question confusing charges.",
         name: "Fern.ai",
         picture: "/pastwinners/2026/mobile2026winner.webp",
         winners: "Ishaan Gulati, Anay Shekhar, Varun Surianarayanan",
@@ -87,8 +87,8 @@ export const pastWinners: WinnersYear[] = [
       {
         title: "Best Beginner Hack",
         description:
-          "",
-        name: "AarushSidMogs",
+          "ClearPath puts college costs, debt, and projected earnings side by side so families can see beyond the sticker price.",
+        name: "ClearPath",
         picture: "/pastwinners/2026/beginner2026winner.webp",
         winners: "Aarush Gutha, Sidharth Mantri",
         icon: Sparkles,
@@ -96,7 +96,7 @@ export const pastWinners: WinnersYear[] = [
       {
         title: "Best Biomedical Hack",
         description:
-          "",
+          "VoiceRecovery pairs sound-by-sound feedback with melody-guided exercises to make speech practice more focused and progress easier to follow.",
         name: "VoiceRecovery",
         picture: "/pastwinners/2026/biomed2026winner.webp",
         winners: "Hanseon Lee, Jake Kim, Immanuel Yim",
@@ -105,7 +105,7 @@ export const pastWinners: WinnersYear[] = [
       {
         title: "Best Sustainability Hack",
         description:
-          "",
+          "SubFlow brings floodwater to life in a 3D city, linking a Rust fluid simulation with interactive browser graphics.",
         name: "SubFlow",
         picture: "/pastwinners/2026/sustainability2026winner.webp",
         winners: "Josh Fields, Justin Cafaro, Hayden Neiberline, Kylie Liu",
@@ -123,7 +123,7 @@ export const pastWinners: WinnersYear[] = [
       {
         title: "Best Cyber Technology Hack",
         description:
-          "",
+          "AgentGuard looks beneath the visible webpage to flag hidden instructions that could mislead an AI browsing assistant.",
         name: "AgentGuard",
         picture: "/pastwinners/2026/cyber2026winner.webp",
         winners: "Rohan Honganoor, Jayden Yang, Joshua Zhou, Andrew Chen",
@@ -132,7 +132,7 @@ export const pastWinners: WinnersYear[] = [
       {
         title: "Best Quantum Hack",
         description:
-          "",
+          "Qore applies quantum optimization to the challenge of matching organ donors with recipients, weighing medical factors alongside waiting time and transport distance.",
         name: "Qore",
         picture: "/pastwinners/2026/quantum2026winner.webp",
         winners: "Sarah Trainer, Haasini Govindu, Anna Park, Aditi Saravanan",
@@ -141,7 +141,7 @@ export const pastWinners: WinnersYear[] = [
       {
         title: "Best Lifestyle Hack",
         description:
-          "",
+          "OmniSign turns English text into an animated signing avatar, connecting language rules and recorded motion in a mobile ASL prototype.",
         name: "OmniSign",
         picture: "/pastwinners/2026/lifestyle2026winner.webp",
         winners: "Fiona MacGarvey, Medha Pappula",
@@ -150,7 +150,7 @@ export const pastWinners: WinnersYear[] = [
       {
         title: "Best Use of Terac",
         description:
-          "",
+          "GridWatch maps weather-based power-outage risk across Virginia and lets residents subscribe to alerts for the places they care about.",
         name: "GridWatch",
         picture: "/pastwinners/2026/terac2026winner.webp",
         winners: "Eshan Gillani, August Bhatt, Mohan East, Zakhar Liskovyi",
