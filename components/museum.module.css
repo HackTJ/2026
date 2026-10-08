@@ -1,5 +1,5 @@
 .museum {
-  --museum-pink: var(--color-primary, #fcb2c3);
+  --museum-accent: var(--color-primary, #8fdf96);
   max-width: 1440px;
   margin: auto;
   padding: 0 24px 48px;
@@ -285,7 +285,7 @@
 }
 .museum a:focus-visible,
 .museum button:focus-visible {
-  outline: 2px solid var(--event-accent, var(--museum-pink));
+  outline: 2px solid var(--event-accent, var(--museum-accent));
   outline-offset: 4px;
 }
 

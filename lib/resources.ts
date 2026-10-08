@@ -1,3 +1,5 @@
+import { siteConfig } from "@/lib/site-config";
+
 export type ResourceType = "pdf" | "image";
 
 export type ResourceAsset = {
@@ -6,26 +8,23 @@ export type ResourceAsset = {
   description: string;
   assetPath: string;
   type: ResourceType;
-  previewImage?: string;
 };
 
 export const resources: ResourceAsset[] = [
   {
     slug: "sponsorship-packet",
-    title: "HackTJ 13.0 Sponsorship Packet",
+    title: `HackTJ ${siteConfig.iteration} Sponsorship Packet`,
     description:
-      "Everything partners need to know about HackTJ 13.0 sponsorship levels and perks.",
-    assetPath: "/sponsorship13_0.pdf",
+      `Everything partners need to know about HackTJ ${siteConfig.iteration} sponsorship levels and perks.`,
+    assetPath: "/sponsorship14.pdf",
     type: "pdf",
-    previewImage: "/pink_black.png",
   },
   {
-    slug: "brand-mark",
-    title: "HackTJ 13.0 Brand Mark",
-    description: "The circular HackTJ 13.0 mark for press kits, features, and promotions.",
-    assetPath: "/pink_white.png",
+    slug: "logo",
+    title: `HackTJ ${siteConfig.iteration} Logo`,
+    description: "The official HackTJ logo for this year's event.",
+    assetPath: "/brand/hacktj-14.png",
     type: "image",
-    previewImage: "/pink_white.png",
   },
 ];
 

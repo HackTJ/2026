@@ -50,11 +50,11 @@ export default function Navbar() {
         <div className="hidden items-center gap-6 text-sm font-semibold uppercase tracking-[0.3em] md:flex">
           <Link href="/">
             <Image
-              src={withBasePath("/pink_white-small.webp")}
-              alt="Logo"
-              width={70}
-              height={70}
-              className="rounded-full"
+              src={withBasePath("/brand/hacktj-14.png")}
+              alt="HackTJ logo"
+              width={80}
+              height={80}
+              className="object-contain"
             />
           </Link>
           {navLinks.slice(1).map((link) => (

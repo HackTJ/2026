@@ -1,21 +1,21 @@
 export type RegistrationStatus = "open" | "not_open_yet" | "closed";
 
 export const siteConfig = {
-  year: 2026,
-  iteration: "13.0",
+  year: 2027,
+  iteration: "14.0",
   theme: {
-    primary: "#fcb2c3",
-    secondary: "#4c3a26",
+    primary: "#8fdf96",
+    secondary: "#2f4858",
   },
   event: {
     season: "Spring",
-    dates: "March 7-8, 2026",
+    dates: "March 6-7, 2027",
     venue: "Cvent HQ",
     city: "Tysons, VA",
   },
   registration: {
-    status: "open" as RegistrationStatus,
-    opensAt: "2026-01-26T11:59:00-05:00",
+    status: "not_open_yet" as RegistrationStatus,
+    opensAt: "2027-12-30T11:59:00-05:00",
     links: {
       participants:
         "https://docs.google.com/forms/d/e/1FAIpQLScs55nEb53Lx4SCE1-LfeO8Tz061UEWihGcVCaPTGiTFbb0uA/viewform?usp=header",

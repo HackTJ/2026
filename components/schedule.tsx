@@ -1,11 +1,12 @@
 "use client";
 
-import { Clock3, X } from "lucide-react";
+import { CalendarDays, Clock3, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import {
   scheduleCategories,
   scheduleDays,
+  scheduleStatus,
   type ScheduleCategory,
   type ScheduleDay,
   type ScheduleEvent,
@@ -19,7 +20,7 @@ const categoryColors: Record<
   ScheduleCategory,
   { accent: string; surface: string }
 > = {
-  milestone: { accent: "#ff83ac", surface: "#352033" },
+  milestone: { accent: "var(--color-primary)", surface: "color-mix(in srgb, var(--color-primary) 14%, #0c1016)" },
   ceremony: { accent: "#f4c575", surface: "#342b27" },
   food: { accent: "#ffa992", surface: "#372927" },
   workshop: { accent: "#83c9e6", surface: "#203341" },
@@ -56,7 +57,6 @@ function dateTime(day: ScheduleDay, time: string) {
 
 function displayMinute(day: ScheduleDay, time: string) {
   const value = minutes(time);
-  // The 2:00–3:00 AM hour does not exist on Sunday, March 8, 2026.
   return day.id === "sunday" && value >= 180 ? value - 60 : value;
 }
 
@@ -183,7 +183,7 @@ function CalendarGrid({
           <button
             type="button"
             onClick={() => onSelect(daylightSavingEvent)}
-            className="absolute left-[84px] right-5 z-20 flex items-center gap-2 border-l-2 border-[#fcb2c3] bg-[#261d2b] px-3 py-1 text-left text-xs font-semibold text-[#ffd0dd] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-[#fcb2c3]"
+            className="absolute left-[84px] right-5 z-20 flex items-center gap-2 border-l-2 border-[var(--color-primary)] bg-[#171c22] px-3 py-1 text-left text-xs font-semibold text-[var(--color-primary)] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-[var(--color-primary)]"
             style={{ top: HOUR_HEIGHT * 1.4 }}
           >
             <Clock3 aria-hidden="true" className="h-4 w-4 shrink-0" />
@@ -202,7 +202,7 @@ function CalendarGrid({
                 key={event.id}
                 type="button"
                 onClick={() => onSelect(event)}
-                className="absolute flex flex-col items-start justify-start overflow-hidden rounded-sm border-l-[3px] px-3 py-2 text-left hover:brightness-110 focus-visible:z-30 focus-visible:outline-2 focus-visible:outline-[#fcb2c3]"
+                className="absolute flex flex-col items-start justify-start overflow-hidden rounded-sm border-l-[3px] px-3 py-2 text-left hover:brightness-110 focus-visible:z-30 focus-visible:outline-2 focus-visible:outline-[var(--color-primary)]"
                 style={{
                   top,
                   height,
@@ -244,12 +244,12 @@ function MobileCalendar({
           return (
             <li
               key={event.id}
-              className="border-b border-white/10 py-4 text-[#ffd0dd]"
+              className="border-b border-white/10 py-4 text-[var(--color-primary)]"
             >
               <button
                 type="button"
                 onClick={() => onSelect(event)}
-                className="w-full text-left focus-visible:outline-2 focus-visible:outline-[#fcb2c3]"
+                className="w-full text-left focus-visible:outline-2 focus-visible:outline-[var(--color-primary)]"
               >
                 <span className="flex items-center gap-2 text-xs font-bold">
                   <Clock3 aria-hidden="true" className="h-4 w-4" />
@@ -270,7 +270,7 @@ function MobileCalendar({
             <button
               type="button"
               onClick={() => onSelect(event)}
-              className="flex w-full items-start gap-3 text-left focus-visible:outline-2 focus-visible:outline-[#fcb2c3]"
+              className="flex w-full items-start gap-3 text-left focus-visible:outline-2 focus-visible:outline-[var(--color-primary)]"
             >
               <span
                 className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full"
@@ -295,7 +295,55 @@ function MobileCalendar({
   );
 }
 
-export default function Schedule() {
+function ScheduleComingSoon() {
+  return (
+    <main className="pb-24 text-white">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
+        <header className="border-b border-white/10 pb-5 pt-10 text-center sm:pt-12">
+          <h1 className="text-5xl font-extrabold sm:text-6xl">Schedule</h1>
+          <p className="mt-3 text-base text-white/65">{siteConfig.event.dates}</p>
+        </header>
+
+        <section aria-labelledby="schedule-coming-soon" className="pt-10 sm:pt-14">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="inline-flex items-center gap-2 border border-[var(--color-primary)] bg-[#171c22] px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-primary)]">
+              <CalendarDays aria-hidden="true" className="h-4 w-4" />
+              Schedule in progress
+            </span>
+            <h2 id="schedule-coming-soon" className="mt-6 text-3xl font-extrabold sm:text-4xl">
+              The weekend is taking shape.
+            </h2>
+            <p className="mt-4 text-base leading-7 text-white/65">
+              The schedule for HackTJ {siteConfig.iteration} is still in the works. Check back for the full schedule as the event gets closer.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-2">
+            {scheduleDays.map((day) => (
+              <div key={day.id} className="border border-white/10 bg-[#0c1016]">
+                <div className="border-b border-white/10 bg-[#171c22] px-6 py-5 sm:px-7">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-primary)]">{day.day}</p>
+                  <h3 className="mt-1 text-2xl font-extrabold">{day.dateLabel}</h3>
+                </div>
+                <div className="flex min-h-48 flex-col justify-center px-6 py-8 sm:px-7">
+                  <div className="flex items-center gap-4">
+                    <span aria-hidden="true" className="h-12 w-1 shrink-0 bg-[var(--color-primary)]" />
+                    <div>
+                      <p className="font-bold text-white">Details coming soon</p>
+                      <p className="mt-1 text-sm text-white/55">Events and times will appear here once confirmed.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+    </main>
+  );
+}
+
+function PublishedSchedule() {
   const [selectedDayId, setSelectedDayId] =
     useState<ScheduleDay["id"]>("saturday");
   const [selectedEvent, setSelectedEvent] = useState<ScheduleEvent | null>(
@@ -337,9 +385,9 @@ export default function Schedule() {
                     setSelectedEvent(null);
                     setSelectedDayId(day.id);
                   }}
-                  className={`border-b-2 px-4 py-2 text-sm font-bold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fcb2c3] ${
+                  className={`border-b-2 px-4 py-2 text-sm font-bold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary)] ${
                     selectedDayId === day.id
-                      ? "border-[#fcb2c3] text-[#fcb2c3]"
+                      ? "border-[var(--color-primary)] text-[var(--color-primary)]"
                       : "border-transparent text-white/60 hover:text-white"
                   }`}
                 >
@@ -375,7 +423,7 @@ export default function Schedule() {
           >
             <div className="mb-5 flex items-center justify-between gap-4">
               <div>
-                <p className="text-sm font-semibold text-[#fcb2c3]">
+                <p className="text-sm font-semibold text-[var(--color-primary)]">
                   {selectedDay.dateLabel}
                 </p>
                 <h3 aria-live="polite" className="text-2xl font-extrabold">
@@ -419,7 +467,7 @@ export default function Schedule() {
                 type="button"
                 aria-label="Close event details"
                 onClick={() => setSelectedEvent(null)}
-                className="-mr-2 -mt-2 p-2 text-white/65 hover:text-white focus-visible:outline-2 focus-visible:outline-[#fcb2c3]"
+                className="-mr-2 -mt-2 p-2 text-white/65 hover:text-white focus-visible:outline-2 focus-visible:outline-[var(--color-primary)]"
               >
                 <X aria-hidden="true" className="h-5 w-5" />
               </button>
@@ -458,4 +506,8 @@ export default function Schedule() {
       </dialog>
     </main>
   );
+}
+
+export default function Schedule() {
+  return scheduleStatus === "published" ? <PublishedSchedule /> : <ScheduleComingSoon />;
 }

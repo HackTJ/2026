@@ -33,5 +33,4 @@ await optimizeDirectory(join(publicRoot, "prev"), 480);
 await optimizeDirectory(join(publicRoot, "team"), 720);
 await optimizeDirectory(join(publicRoot, "pastwinners"), 960);
 await optimizeDirectory(join(publicRoot, "logos"), 640, true);
-await optimizeImage(join(publicRoot, "pink_white.png"), join(publicRoot, "pink_white-small.webp"), 140, true);
 console.log(`Prepared optimized images (${count} updated).`);

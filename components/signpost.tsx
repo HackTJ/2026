@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import { scheduleStatus } from "@/lib/schedule-data";
 
 export default function Signpost() {
   return (
@@ -20,7 +21,9 @@ export default function Signpost() {
           <div className="rounded-[36px] border-4 border-[#d7c4a1] bg-[#fff8ea] p-10 text-center text-[#1e1b16] shadow-[0_35px_70px_rgba(0,0,0,0.35)]">
             <h3 className="mt-3 text-4xl font-extrabold text-[var(--color-secondary)]">Want the full map?</h3>
             <p className="mt-4 text-base text-[var(--color-secondary)]">
-              Hop off the main road to view the full schedule and the FAQ. Tap a button below to take the detour.
+              {scheduleStatus === "published"
+                ? "Hop off the main road to view the full schedule and the FAQ. Tap a button below to take the detour."
+                : "Take a look at the event dates and FAQ. The full schedule is on its way."}
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -28,7 +31,7 @@ export default function Signpost() {
                 asChild
                 className="rounded-full bg-[#2d3945] px-8 text-white hover:bg-[#1f2a33]"
               >
-                <Link href="/schedule">View Schedule</Link>
+                <Link href="/schedule">{scheduleStatus === "published" ? "View Schedule" : "Schedule Updates"}</Link>
               </Button>
               <Button
                 asChild

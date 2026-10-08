@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { withBasePath } from "@/lib/paths";
+import { siteConfig } from "@/lib/site-config";
 
 type TeamMember = {
   name: string;
@@ -45,7 +46,7 @@ const team: TeamMember[] = [
   },
   {
     name: "Shreyas Jain",
-    bio: "Shreyas is a junior at TJHSST, and this is his first year on the team after competing in 11.0. This year, he's working on tech and judging for HackTJ 13.0, building the event website and judging platforms. Outside HackTJ, he enjoys competing in robotics and rocketry, and is a Sysadmin for the tjCSL. In his free time, he loves sleeping and hanging out with friends.",
+    bio: `Shreyas is a junior at TJHSST, and this is his first year on the team after competing in 11.0. This year, he's working on tech and judging for HackTJ ${siteConfig.iteration}, building the event website and judging platforms. Outside HackTJ, he enjoys competing in robotics and rocketry, and is a Sysadmin for the tjCSL. In his free time, he loves sleeping and hanging out with friends.`,
     image: "/team/shreyas.webp",
   },
   {
@@ -102,7 +103,7 @@ export default function Team() {
             The Team
           </h1>
           <p className="mt-3 text-lg text-white/80 max-w-xl drop-shadow">
-            Meet the group making HackTJ 13.0 possible!
+            Meet the group making HackTJ {siteConfig.iteration} possible!
           </p>
         </div>
       </div>

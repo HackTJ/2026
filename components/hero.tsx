@@ -84,9 +84,7 @@ export default function Hero() {
 
       <div className="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col px-4 pb-10 pt-16 sm:px-6 lg:px-10">
         <div className="ml-auto mt-10 max-w-xl text-right">
-          <p className="inline-flex items-center justify-end rounded-full border border-white/30 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-white/80">
-            {siteConfig.event.season} {siteConfig.year}
-          </p>
+          <div aria-hidden="true" className="h-8" />
           <h1 className="mt-2 text-5xl font-extrabold leading-[1.1] sm:text-6xl lg:text-7xl">
             HackTJ <span className="text-[var(--color-primary)]">{siteConfig.iteration}</span>
           </h1>

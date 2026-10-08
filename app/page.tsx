@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div>
       <div className="fixed inset-0 pointer-events-none z-50">
-        <Snowfall />
+        {/* <Snowfall /> */}
       </div>
       <Navbar />
       <Hero />

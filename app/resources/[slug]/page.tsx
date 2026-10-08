@@ -13,9 +13,9 @@ type ResourcePageProps = {
   }>;
 };
 
-const defaultOgImage = "/pink_black.png";
+const defaultOgImage = "/hacktj-og.png";
 const baseDescription =
-  "Official HackTJ 13.0 resources, brand assets, and reference material.";
+  `Official HackTJ ${siteConfig.iteration} resources, brand assets, and reference material.`;
 
 export function generateStaticParams() {
   return resources.map((resource) => ({ slug: resource.slug }));
@@ -32,8 +32,8 @@ export async function generateMetadata({ params }: ResourcePageProps): Promise<M
     };
   }
 
-  const fullTitle = `${resource.title} · HackTJ ${siteConfig.iteration}`;
-  const preview = resource.previewImage ?? defaultOgImage;
+  const fullTitle = resource.title;
+  const preview = defaultOgImage;
   const description = resource.description || baseDescription;
 
   return {
@@ -110,7 +110,7 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
           ) : (
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-white/10 bg-[#02060c]">
               <Image
-                src={resource.assetPath}
+                src={assetHref}
                 alt={resource.title}
                 fill
                 className="object-contain p-6"
@@ -120,6 +120,22 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
             </div>
           )}
         </div>
+
+        <nav aria-label="More resources" className="mt-10 border-t border-white/10 pt-8">
+          <h2 className="text-2xl font-extrabold">More resources</h2>
+          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+            {resources.filter((item) => item.slug !== resource.slug).map((item) => (
+              <li key={item.slug}>
+                <Link
+                  href={`/resources/${item.slug}`}
+                  className="block border border-white/15 bg-white/5 px-5 py-4 font-semibold transition hover:border-white/40 hover:bg-white/10"
+                >
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </div>
   );
